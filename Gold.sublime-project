@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/app"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/Users/superstitio/Documents/workspace/sandbox/ember.js/gold"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "cordova"
+		}
+	]
+}
