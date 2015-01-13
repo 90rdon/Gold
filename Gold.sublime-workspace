@@ -526,6 +526,14 @@
 				"buffer_size": 1041,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/config/environment.js",
+			"settings":
+			{
+				"buffer_size": 1212,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "Packages/JSHint/JSHint.sublime-build",
@@ -1138,8 +1146,8 @@
 						"selection":
 						[
 							[
-								999,
-								999
+								257,
+								257
 							]
 						],
 						"settings":
@@ -1154,7 +1162,42 @@
 					},
 					"stack_index": 0,
 					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/config/environment.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1212,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								604,
+								604
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
 				}
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
@@ -1175,11 +1218,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -1734,7 +1784,7 @@
 		[
 			[
 				"",
-				"~/Documents/workspace/sandbox/ember.js/LeaseCal/LeaseCal.sublime-project"
+				"~/Documents/workspace/sandbox/ember.js/lingu.is/lingu.is.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -1747,7 +1797,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
