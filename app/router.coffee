@@ -5,5 +5,7 @@ Router = Ember.Router.extend
   location: config.locationType
 
 Router.map ->
+  @route 'member', path: '/:member_id'
+  @route 'call', path: '/call/:call_id'
 
 `export default Router`

@@ -520,18 +520,18 @@
 	"buffers":
 	[
 		{
-			"file": "package.json",
+			"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/app/router.coffee",
 			"settings":
 			{
-				"buffer_size": 1041,
+				"buffer_size": 253,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/config/environment.js",
+			"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/.ember-cli",
 			"settings":
 			{
-				"buffer_size": 1212,
+				"buffer_size": 280,
 				"line_ending": "Unix"
 			}
 		}
@@ -617,11 +617,33 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold"
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/app",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/app/views",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/config",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/node_modules/ember-cli",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/node_modules/ember-cli/blueprints",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/node_modules/ember-cli/blueprints/server",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/node_modules/ember-cli/blueprints/server/files",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/node_modules/ember-cli/blueprints/server/files/server",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/server/proxies"
 	],
 	"file_history":
 	[
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/.ember-cli",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/Brocfile.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/server/proxies/api.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/app/router.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/app/templates/application.emblem",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/templates/index.emblem",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/server/proxies/api.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/Brocfile.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/package.json",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/node_modules/ember-cli/node_modules/npm/node_modules/npm-registry-client/test/publish-again.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/app/app.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/server/index.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/config/environment.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/package.json",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/LeaseCal/config/environment.js",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/LeaseCal/app/templates/application.hbs",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/LeaseCal/app/templates/index.hbs",
@@ -735,20 +757,7 @@
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tasks/options/emberscript.js",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/styles/linguis.styl",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/merges/ios/index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/phoneGapApp.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/platforms/ios/www/index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/merges/ios/__index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/platforms/ios/www/__index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tasks/options/clean.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tasks/options/copy.js",
-		"/Users/superstitio/Documents/workspace/sandbox/cordova/cordova-sample/cordova/www/index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/merges/ios/debug/index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/merges/ios/dist/index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/loom/lib/computed_property.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/vendor/firebase-simple-login.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/lib/firebase-simple-login.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/vendor/firebase/firebase.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tasks/options/firebase.js"
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/phoneGapApp.coffee"
 	],
 	"find":
 	{
@@ -857,6 +866,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\"",
+			" # ",
+			"// ",
 			"# ",
 			"config",
 			"class",
@@ -981,10 +993,7 @@
 			"/assets",
 			"/vendor",
 			"/ios/www",
-			"createDistVersion",
-			"opentok",
-			"/vendor",
-			"/assets"
+			"createDistVersion"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -992,6 +1001,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"'",
+			"// ",
+			" # ",
 			"// ",
 			"updateConnectionStatus",
 			"session",
@@ -1116,10 +1128,7 @@
 			"profiles",
 			"member",
 			"\"likes\"",
-			"\"rate\"",
-			"\"to\"",
-			"\"from\"",
-			"\"img\""
+			"\"rate\""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1130,61 +1139,34 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"sheets":
+			[
+			]
+		},
+		{
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "package.json",
+					"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/app/router.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1041,
+						"buffer_size": 253,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								257,
-								257
+								227,
+								227
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 54.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/config/environment.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1212,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								604,
-								604
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1192,12 +1174,35 @@
 					},
 					"stack_index": 1,
 					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/.ember-cli",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 280,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -1229,7 +1234,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.482678668672,
 			1.0
 		],
 		"rows":
@@ -1263,6 +1268,10 @@
 		"selected_items":
 		[
 			[
+				"pack",
+				"gold/package.json"
+			],
+			[
 				"phone",
 				"app/phoneGapApp.js"
 			],
@@ -1273,10 +1282,6 @@
 			[
 				"grunt",
 				"l2/node_modules/ember-cli/node_modules/bower/Gruntfile.js"
-			],
-			[
-				"pack",
-				"l2/package.json"
 			],
 			[
 				"pac",
@@ -1784,7 +1789,7 @@
 		[
 			[
 				"",
-				"~/Documents/workspace/sandbox/ember.js/lingu.is/lingu.is.sublime-project"
+				"~/Documents/workspace/sandbox/ember.js/LeaseCal/LeaseCal.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -1805,7 +1810,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 186.0,
+	"side_bar_width": 183.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

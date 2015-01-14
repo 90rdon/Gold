@@ -1,5 +1,27 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# OS X
+.DS_Store
+
+# Xcode
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+profile
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcworkspace
+
 # compiled output
 /dist
 /tmp
@@ -42,3 +64,7 @@ cordova/platforms/wp8/www
 cordova/platforms/wp8/.staging
 cordova/platforms/wp8/*.suo
 cordova/platforms/wp8/*.csproj.user
+
+# Sublime text files
+*.sublime-project
+*.sublime-workspace

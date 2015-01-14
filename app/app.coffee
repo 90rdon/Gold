@@ -10,6 +10,12 @@ App = Ember.Application.extend
   podModulePrefix: config.podModulePrefix
   Resolver: Resolver
 
+App.reopen
+  ready: ->
+    console.log 'App ready!! --- init firebaseUri ---'
+    @__container__.lookup('store:main').set('firebaseRoot', @get('firebaseUri'))
+    console.log 'App initialized'
+
 loadInitializers(App, config.modulePrefix)
 
 `export default App`
