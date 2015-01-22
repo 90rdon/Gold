@@ -22,6 +22,9 @@
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
+    <feature name="PhoneRTCPlugin">
+        <param name="ios-package" value="PhoneRTCPlugin" />
+    </feature>
     <name>Gold</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

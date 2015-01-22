@@ -6,9 +6,28 @@
 	objectVersion = 46;
 	objects = {
 /* Begin PBXBuildFile section */
+		004371C0920A498798ADAC2C /* libPCM16B.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 246CEE1447254C60864E14D3 /* libPCM16B.a */; };
+		0280231F2CE248BFAFE6D6C6 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F363BBD41BF246DF830866E6 /* CoreAudio.framework */; };
+		0349F8E123734061A2CD373B /* libisac_neon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A91DCE10077D48E1BA7BD568 /* libisac_neon.a */; };
+		06D25F134FF346E799E4BB18 /* libiLBC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E727E7A4FCC3480FB645E06F /* libiLBC.a */; };
+		0A72006218644EC6AAB0489C /* libjingle_peerconnection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0889EE1C77784400BC140863 /* libjingle_peerconnection.a */; };
+		0A802524D8464F35A5086FD5 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12FBA6361CA340358CADCCFA /* libstdc++.dylib */; };
+		0D42A14E3E32499E82A4541B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765D107D741044AB932418B0 /* CoreLocation.framework */; };
+		0D9AF1032AF04A88BDBAB92E /* libfield_trial_default.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A160FDB7A2445C3AC0923A7 /* libfield_trial_default.a */; };
+		12E698F56F424CFFABA8D63D /* libnss_static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A3C72FCBF494B8ACD4C8F /* libnss_static.a */; };
+		169B69A4ECAA4E9F9BC09671 /* libjingle_media.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5476EDCE4840CB99DBA2DA /* libjingle_media.a */; };
+		19C89533FE724874A424DC05 /* libsrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2757E5BAF014CD4AF5EB7AD /* libsrtp.a */; };
+		1BE742E5C0CA4538A01A3972 /* libmetrics_default.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE3064D27FC4D8398035AF3 /* libmetrics_default.a */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1E28D6BD2E4B4826A9252CCC /* libcommon_video.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EBB3D7CCA84271996E56EC /* libcommon_video.a */; };
+		24E78F601F794EAA855A0D7C /* librbe_components.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F431192E8DD54BBDBE904FB7 /* librbe_components.a */; };
+		2642E78BD4EF48398699347C /* libwebrtc_video_coding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0B822900FA4D3BAA6575DC /* libwebrtc_video_coding.a */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		2C18667251134F6E9247DF47 /* libwebrtc_utility.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BA70B02CAF41FCAA0C9234 /* libwebrtc_utility.a */; };
+		2CAC812B4E3A4B73B58B6F1F /* libicuuc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF58C25256CF4AD3B4B9BAF8 /* libicuuc.a */; };
+		2DABEC4B49CC4D6FA7A1FD22 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82672E62510400CB9EB2470 /* CoreMedia.framework */; };
+		2F74BC813F0048D49080831B /* libicui18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A93A06EF34064B11A1C65FA3 /* libicui18n.a */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
@@ -27,7 +46,42 @@
 		30B4F30219D5E07200D9F7D8 /* Default-Landscape-736h.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B4F2FF19D5E07200D9F7D8 /* Default-Landscape-736h.png */; };
 		30C1856619D5FC0A00212699 /* icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30C1856519D5FC0A00212699 /* icon-60@3x.png */; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
+		31ECD529D88C46258CD0C008 /* libaudio_conference_mixer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C52E125CB72470ABE0C576A /* libaudio_conference_mixer.a */; };
+		36B0FB3BAB5D472F8432E6AF /* libusrsctplib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 357E3037A9584494AFE562BF /* libusrsctplib.a */; };
+		3C6FCCDF14F54365B8081413 /* libvideo_render_module.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D876E083E6A4FADA829C05D /* libvideo_render_module.a */; };
+		3E2005059EEC4415B110EFC8 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99FB7450D0A4959B55E1E80 /* GLKit.framework */; };
+		4234A407693440EF8FEF66A2 /* libsqlite_regexp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB77B8087CD47F7AA743716 /* libsqlite_regexp.a */; };
+		459C336833EC4ADC9CD74ADB /* libjsoncpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 849ECBC4FC1042D4A5BA46E6 /* libjsoncpp.a */; };
+		4628F76A4B3B41EB92BF0649 /* libaudio_device.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A04C390AB7B04EA2BE9097E0 /* libaudio_device.a */; };
+		48C1C23E3CB04127A9299BA2 /* libiSACFix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47ABB88B4E084423B2327F86 /* libiSACFix.a */; };
+		5271785785CE4D06BAA247ED /* libvideo_capture_module_internal_impl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA281136DF14BE3843750A7 /* libvideo_capture_module_internal_impl.a */; };
+		54203C64319C4A79AE141566 /* libremote_bitrate_estimator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CE96A4168D4C4398F02291 /* libremote_bitrate_estimator.a */; };
+		54D3D6E84E16434DBED13740 /* libpaced_sender.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C336E724DFF454A95F173FC /* libpaced_sender.a */; };
+		55EF23553A0A4B209802AF7D /* libwebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E75C2E3461140E5A4BB7757 /* libwebrtc.a */; };
+		595F6767DB1F467884587A9E /* libvideo_coding_utility.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C146DB9DEF354C9CB639B962 /* libvideo_coding_utility.a */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
+		5BAD6BAF280942D89243F941 /* librtc_base_approved.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0908C4AD5F94ADCA119B862 /* librtc_base_approved.a */; };
+		5C77F3C602CD4B4FA4EEE75A /* libCNG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF93E4E3DA34C25A6E42865 /* libCNG.a */; };
+		5EDE8A8C451D4A368C032CC1 /* libwebrtc_vp8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D814F8063B4352869AB5A7 /* libwebrtc_vp8.a */; };
+		613D8071893D48809C24C1E2 /* librtc_p2p.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADDD84955CF4E1A937897DA /* librtc_p2p.a */; };
+		63206A143B984CE6872BBD07 /* libvpx_asm_offsets_vpx_scale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 015C19D5C19E471BAE7271FE /* libvpx_asm_offsets_vpx_scale.a */; };
+		64374DEABEE544E09DBFE47E /* libsystem_wrappers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC368E57DC0D4CC9916A8FDF /* libsystem_wrappers.a */; };
+		6708627DEE694458BFA43160 /* libG711.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F566D375F6463A9D792464 /* libG711.a */; };
+		67A2D16AE2464F5CB2F7143A /* libaudio_coding_module.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 895612AAB0D644D3B6974341 /* libaudio_coding_module.a */; };
+		68634FE49C8D4D99AC8007E2 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16ED48E98BA842869C8ACF5C /* libsqlite3.0.dylib */; };
+		6D45F4981F4140B28C19EBE6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE420DDC155848B08B55F878 /* CoreVideo.framework */; };
+		6E499462428C4226A3CA584B /* libneteq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D023835CF94D66A8B8F4CD /* libneteq.a */; };
+		6F428F7D9DA145F3BC09F1DA /* librtc_xmllite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4470C31219E4B8AB6FEBA5A /* librtc_xmllite.a */; };
+		725DBDA163D9490F87A86048 /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B55D33343B54259B39DEA90 /* libyuv.a */; };
+		72C89E7D05BD40BD8CFC6817 /* libopus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 831D5D69B5F04FEF93D77858 /* libopus.a */; };
+		75EEBD18175440D49CD398F4 /* libaudio_processing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DE22D80E814249863DD30F /* libaudio_processing.a */; };
+		75F2B3DC8E264174A464B9CE /* libiSAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B488464F7836476C8210C70A /* libiSAC.a */; };
+		7685977FF17F4B6BA48EB1DE /* libmedia_file.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBF0EF0BC0C4D4A8BEC1DE8 /* libmedia_file.a */; };
+		77440A87BD5F47108EC18A7F /* libcrnssckbi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA22656719CB40F586636CBE /* libcrnssckbi.a */; };
+		77FCBE80973A479EA9A507BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CB7DDD95104AF8BE38AAF7 /* QuartzCore.framework */; };
+		79843DB0C439400187537F01 /* libvideo_processing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D98F374B8E144979FF46F06 /* libvideo_processing.a */; };
+		7C4ECE33C7D04FD78D62F1DA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE7AE599C234DAE886C1701 /* OpenGLES.framework */; };
+		7DFDD34F873E499999C2505F /* libG722.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5186421D6315435584DA9C48 /* libG722.a */; };
 		7E7966DE1810823500FA85AD /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D41810823500FA85AD /* icon-40.png */; };
 		7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D51810823500FA85AD /* icon-40@2x.png */; };
 		7E7966E01810823500FA85AD /* icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D61810823500FA85AD /* icon-50.png */; };
@@ -38,8 +92,43 @@
 		7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DB1810823500FA85AD /* icon-76@2x.png */; };
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
-		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
+		7F5749D8C8E14058B8928CC5 /* librtp_rtcp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C47CC6B61B4D58BEB7A9CE /* librtp_rtcp.a */; };
+		81FD9ED27D544158B0AC967F /* libcommon_audio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA524EDCA7094ED1AE4A7AE8 /* libcommon_audio.a */; };
+		840688E17C8B4C839E6BC6BC /* SessionDescriptionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F60362B1A8478FB4FFECD7 /* SessionDescriptionDelegate.swift */; };
+		870C9299ADBA460D9CF5DDDC /* libcommon_audio_neon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBF6823AC074411BF7BEDCE /* libcommon_audio_neon.a */; };
+		89F7CCDD85B246ACB0066E6F /* libcrnspr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 535C041D54D84F23A631BAC9 /* libcrnspr.a */; };
+		8C8DFFF677534D68BB8BFCB6 /* libbitrate_controller.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B21F31BA484DF8A9638687 /* libbitrate_controller.a */; };
+		8DBA5191E05F4143AEA24D47 /* libcrssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 482C1129113748E6BBAC0243 /* libcrssl.a */; };
+		8EC8E1E295F64D1B98A248F8 /* libicudata.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81E8B0C54CFA4B908D1D97E4 /* libicudata.a */; };
+		8F200FB886D944ED836F13BA /* libcrnss.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52038115DD754F5D8F18A82C /* libcrnss.a */; };
+		914AB4D3A26C4829A017517B /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C84C8918CE0545B28B67AAC8 /* libc++.dylib */; };
+		9434E905DD804708BCCB1D57 /* PCObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18B5E4D39A8441697E1B265 /* PCObserver.swift */; };
+		9713A52C616D4544904E3C68 /* libvpx_asm_offsets_vp8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B52F298925BB405D8B920CFE /* libvpx_asm_offsets_vp8.a */; };
+		98E2E552E96F4A7284EBCEE7 /* libwebrtc_vp9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 486EC40E02B841129A2E79DC /* libwebrtc_vp9.a */; };
+		9EC935412386424186346F72 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E19552DE4E24BB89BE4DF3A /* AudioToolbox.framework */; };
+		A0AAAD5D03724EEBAEAD0602 /* libaudio_processing_neon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 876B4468907342738F50EC5C /* libaudio_processing_neon.a */; };
+		AE1B3E36AA4E4C58A9FD358F /* librtc_xmpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F27C8D7BB4954A029A8603F1 /* librtc_xmpp.a */; };
+		B1CD949B0BF24CDD94FC9D46 /* libwebrtc_opus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F4F77CCDA644B492C91852 /* libwebrtc_opus.a */; };
+		C22D4DC5272B4456A22ECB9F /* libyuv_neon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 142BF22C27104B52865708AD /* libyuv_neon.a */; };
+		C65BB01A73904EBCA3B65853 /* libexpat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B68F70C71CE47AC8263188F /* libexpat.a */; };
+		C707C43F90D741AD861BDA7C /* libvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C808FCB5FFC84746A7B63D24 /* libvpx.a */; };
+		C78711111B334740B935D2E1 /* libwebrtc_common.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19788D5AB4564A7C9FF5340C /* libwebrtc_common.a */; };
 		C78B7DC461E144C8B52B83CD /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0BD3152E04A9897EEEBDB /* CDVInAppBrowser.m */; };
+		C836DE7FE15E4078B3B20F5F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3EB7EA8A44A41AA7BFF5B /* Config.swift */; };
+		C94BCEB3156948359059C9E6 /* libvideo_capture_module.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD97C21F077448D099F15BF2 /* libvideo_capture_module.a */; };
+		C974B3B07EAC4608BC237EC9 /* lib_core_neon_offsets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE9E5A38884B60B2EAEE4A /* lib_core_neon_offsets.a */; };
+		CEF5B580F4C14AC78BFF6FCC /* libvoice_engine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5FECF6AE53492CBB43C62A /* libvoice_engine.a */; };
+		D203B2A4DBB140E5A8949F3D /* libjingle_peerconnection_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1255687899A4169975ACFDB /* libjingle_peerconnection_objc.a */; };
+		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
+		DA5B75407D5C49FFA5984636 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C59FCF5CE1F84A15B05D9D0F /* AVFoundation.framework */; };
+		E06BEF96C525474DA305548C /* libjingle_p2p.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F4F7CB44284F4789E0B948 /* libjingle_p2p.a */; };
+		E110A534682549D990C52C0E /* libwebrtc_i420.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4082B1CD6C524FBBBECCF1F2 /* libwebrtc_i420.a */; };
+		E3F13ABEAAAD4916BAFE0D7D /* libvideo_engine_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2D0E2860BE467492BDB0BA /* libvideo_engine_core.a */; };
+		E745A82AE71A4F108389EE6B /* PhoneRTCPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E09E70B1554D2CAD4D9C26 /* PhoneRTCPlugin.swift */; };
+		E94B8B4F850340799B983FB4 /* librtc_base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F061E99AAC4141B0685307 /* librtc_base.a */; };
+		EB50F8BC630B431B95FB4B06 /* libvideo_render_module_internal_impl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3335328C9B8849F587E39358 /* libvideo_render_module_internal_impl.a */; };
+		EEA3256FFB2E4B3E800E4898 /* librtc_sound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F7C4C9487F4E78BF5F1371 /* librtc_sound.a */; };
+		F29B695EE5164C0E86AF66C3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F9868C9F7244A2AC314D90 /* Session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,14 +149,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		015C19D5C19E471BAE7271FE /* libvpx_asm_offsets_vpx_scale.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libvpx_asm_offsets_vpx_scale.a; path = Gold/Plugins/com.dooble.phonertc/libvpx_asm_offsets_vpx_scale.a; sourceTree = "<group>"; };
+		03F60362B1A8478FB4FFECD7 /* SessionDescriptionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = SessionDescriptionDelegate.swift; path = com.dooble.phonertc/SessionDescriptionDelegate.swift; sourceTree = "<group>"; };
+		047A00E59F1A46CBAB77ECE0 /* RTCPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCPair.h; path = com.dooble.phonertc/RTCPair.h; sourceTree = "<group>"; };
+		04F061E99AAC4141B0685307 /* librtc_base.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = librtc_base.a; path = Gold/Plugins/com.dooble.phonertc/librtc_base.a; sourceTree = "<group>"; };
+		0889EE1C77784400BC140863 /* libjingle_peerconnection.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libjingle_peerconnection.a; path = Gold/Plugins/com.dooble.phonertc/libjingle_peerconnection.a; sourceTree = "<group>"; };
+		0D0B822900FA4D3BAA6575DC /* libwebrtc_video_coding.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libwebrtc_video_coding.a; path = Gold/Plugins/com.dooble.phonertc/libwebrtc_video_coding.a; sourceTree = "<group>"; };
+		0D98F374B8E144979FF46F06 /* libvideo_processing.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libvideo_processing.a; path = Gold/Plugins/com.dooble.phonertc/libvideo_processing.a; sourceTree = "<group>"; };
+		0EE7AE599C234DAE886C1701 /* OpenGLES.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		12CE9E5A38884B60B2EAEE4A /* lib_core_neon_offsets.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = lib_core_neon_offsets.a; path = Gold/Plugins/com.dooble.phonertc/lib_core_neon_offsets.a; sourceTree = "<group>"; };
+		12FBA6361CA340358CADCCFA /* libstdc++.dylib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		142BF22C27104B52865708AD /* libyuv_neon.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libyuv_neon.a; path = Gold/Plugins/com.dooble.phonertc/libyuv_neon.a; sourceTree = "<group>"; };
+		148A3C72FCBF494B8ACD4C8F /* libnss_static.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libnss_static.a; path = Gold/Plugins/com.dooble.phonertc/libnss_static.a; sourceTree = "<group>"; };
+		16ED48E98BA842869C8ACF5C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		18141CCB779A4BC2BD1C29CA /* RTCI420Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCI420Frame.h; path = com.dooble.phonertc/RTCI420Frame.h; sourceTree = "<group>"; };
+		19788D5AB4564A7C9FF5340C /* libwebrtc_common.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libwebrtc_common.a; path = Gold/Plugins/com.dooble.phonertc/libwebrtc_common.a; sourceTree = "<group>"; };
+		1C336E724DFF454A95F173FC /* libpaced_sender.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libpaced_sender.a; path = Gold/Plugins/com.dooble.phonertc/libpaced_sender.a; sourceTree = "<group>"; };
+		1CD0BD3152E04A9897EEEBDB /* CDVInAppBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowser.m; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.m; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* Gold.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gold.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F766FDD13BBADB100FB74C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
-		1F766FE013BBADB100FB74C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* Gold.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gold.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4D9B29134E4BE986690B74 /* RTCMediaConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCMediaConstraints.h; path = com.dooble.phonertc/RTCMediaConstraints.h; sourceTree = "<group>"; };
+		22F566D375F6463A9D792464 /* libG711.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libG711.a; path = Gold/Plugins/com.dooble.phonertc/libG711.a; sourceTree = "<group>"; };
+		2387C014E38948FAAF395647 /* RTCVideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCVideoSource.h; path = com.dooble.phonertc/RTCVideoSource.h; sourceTree = "<group>"; };
+		246CEE1447254C60864E14D3 /* libPCM16B.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libPCM16B.a; path = Gold/Plugins/com.dooble.phonertc/libPCM16B.a; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28F4F7CB44284F4789E0B948 /* libjingle_p2p.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libjingle_p2p.a; path = Gold/Plugins/com.dooble.phonertc/libjingle_p2p.a; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = "CordovaLib/CordovaLib.xcodeproj"; sourceTree = "<group>"; };
+		2D80AC9833DF4ED09E7756EA /* RTCVideoTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCVideoTrack.h; path = com.dooble.phonertc/RTCVideoTrack.h; sourceTree = "<group>"; };
+		2FA281136DF14BE3843750A7 /* libvideo_capture_module_internal_impl.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libvideo_capture_module_internal_impl.a; path = Gold/Plugins/com.dooble.phonertc/libvideo_capture_module_internal_impl.a; sourceTree = "<group>"; };
+		2FF93E4E3DA34C25A6E42865 /* libCNG.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libCNG.a; path = Gold/Plugins/com.dooble.phonertc/libCNG.a; sourceTree = "<group>"; };
+		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 		302D95EE14D2391D003F00A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		302D95EF14D2391D003F00A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -88,7 +200,36 @@
 		30C1856519D5FC0A00212699 /* icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-60@3x.png"; sourceTree = "<group>"; };
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Gold-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Gold-Prefix.pch"; sourceTree = "<group>"; };
+		3335328C9B8849F587E39358 /* libvideo_render_module_internal_impl.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libvideo_render_module_internal_impl.a; path = Gold/Plugins/com.dooble.phonertc/libvideo_render_module_internal_impl.a; sourceTree = "<group>"; };
+		357E3037A9584494AFE562BF /* libusrsctplib.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libusrsctplib.a; path = Gold/Plugins/com.dooble.phonertc/libusrsctplib.a; sourceTree = "<group>"; };
+		3F1101F9D7784A5990E54768 /* RTCPeerConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCPeerConnectionFactory.h; path = com.dooble.phonertc/RTCPeerConnectionFactory.h; sourceTree = "<group>"; };
+		4082B1CD6C524FBBBECCF1F2 /* libwebrtc_i420.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libwebrtc_i420.a; path = Gold/Plugins/com.dooble.phonertc/libwebrtc_i420.a; sourceTree = "<group>"; };
+		46F4F77CCDA644B492C91852 /* libwebrtc_opus.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libwebrtc_opus.a; path = Gold/Plugins/com.dooble.phonertc/libwebrtc_opus.a; sourceTree = "<group>"; };
+		47ABB88B4E084423B2327F86 /* libiSACFix.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libiSACFix.a; path = Gold/Plugins/com.dooble.phonertc/libiSACFix.a; sourceTree = "<group>"; };
+		482C1129113748E6BBAC0243 /* libcrssl.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libcrssl.a; path = Gold/Plugins/com.dooble.phonertc/libcrssl.a; sourceTree = "<group>"; };
+		486EC40E02B841129A2E79DC /* libwebrtc_vp9.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libwebrtc_vp9.a; path = Gold/Plugins/com.dooble.phonertc/libwebrtc_vp9.a; sourceTree = "<group>"; };
+		49F9868C9F7244A2AC314D90 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = Session.swift; path = com.dooble.phonertc/Session.swift; sourceTree = "<group>"; };
+		4D1280FDFDA04656B0A7A2B4 /* RTCSessionDescriptionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCSessionDescriptionDelegate.h; path = com.dooble.phonertc/RTCSessionDescriptionDelegate.h; sourceTree = "<group>"; };
+		4EE3064D27FC4D8398035AF3 /* libmetrics_default.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libmetrics_default.a; path = Gold/Plugins/com.dooble.phonertc/libmetrics_default.a; sourceTree = "<group>"; };
+		5186421D6315435584DA9C48 /* libG722.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libG722.a; path = Gold/Plugins/com.dooble.phonertc/libG722.a; sourceTree = "<group>"; };
+		52038115DD754F5D8F18A82C /* libcrnss.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libcrnss.a; path = Gold/Plugins/com.dooble.phonertc/libcrnss.a; sourceTree = "<group>"; };
+		535C041D54D84F23A631BAC9 /* libcrnspr.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libcrnspr.a; path = Gold/Plugins/com.dooble.phonertc/libcrnspr.a; sourceTree = "<group>"; };
+		57D202C2DD3B4827A05DBF7A /* CDVInAppBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVInAppBrowser.h; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.h; sourceTree = "<group>"; };
+		58CE96A4168D4C4398F02291 /* libremote_bitrate_estimator.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libremote_bitrate_estimator.a; path = Gold/Plugins/com.dooble.phonertc/libremote_bitrate_estimator.a; sourceTree = "<group>"; };
+		59F8D256BD4A4815AB1AA443 /* RTCPeerConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCPeerConnectionDelegate.h; path = com.dooble.phonertc/RTCPeerConnectionDelegate.h; sourceTree = "<group>"; };
+		5A160FDB7A2445C3AC0923A7 /* libfield_trial_default.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libfield_trial_default.a; path = Gold/Plugins/com.dooble.phonertc/libfield_trial_default.a; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5E75C2E3461140E5A4BB7757 /* libwebrtc.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libwebrtc.a; path = Gold/Plugins/com.dooble.phonertc/libwebrtc.a; sourceTree = "<group>"; };
+		6B68F70C71CE47AC8263188F /* libexpat.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libexpat.a; path = Gold/Plugins/com.dooble.phonertc/libexpat.a; sourceTree = "<group>"; };
+		6CBF0EF0BC0C4D4A8BEC1DE8 /* libmedia_file.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libmedia_file.a; path = Gold/Plugins/com.dooble.phonertc/libmedia_file.a; sourceTree = "<group>"; };
+		6D876E083E6A4FADA829C05D /* libvideo_render_module.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libvideo_render_module.a; path = Gold/Plugins/com.dooble.phonertc/libvideo_render_module.a; sourceTree = "<group>"; };
+		6F4C3FCC16084DC4A9F3F041 /* RTCMediaStreamTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCMediaStreamTrack.h; path = com.dooble.phonertc/RTCMediaStreamTrack.h; sourceTree = "<group>"; };
+		72EBB3D7CCA84271996E56EC /* libcommon_video.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libcommon_video.a; path = Gold/Plugins/com.dooble.phonertc/libcommon_video.a; sourceTree = "<group>"; };
+		74D814F8063B4352869AB5A7 /* libwebrtc_vp8.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libwebrtc_vp8.a; path = Gold/Plugins/com.dooble.phonertc/libwebrtc_vp8.a; sourceTree = "<group>"; };
+		765D107D741044AB932418B0 /* CoreLocation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7B55D33343B54259B39DEA90 /* libyuv.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libyuv.a; path = Gold/Plugins/com.dooble.phonertc/libyuv.a; sourceTree = "<group>"; };
+		7C52E125CB72470ABE0C576A /* libaudio_conference_mixer.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libaudio_conference_mixer.a; path = Gold/Plugins/com.dooble.phonertc/libaudio_conference_mixer.a; sourceTree = "<group>"; };
+		7E19552DE4E24BB89BE4DF3A /* AudioToolbox.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7E7966D41810823500FA85AD /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
 		7E7966D51810823500FA85AD /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40@2x.png"; sourceTree = "<group>"; };
 		7E7966D61810823500FA85AD /* icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-50.png"; sourceTree = "<group>"; };
@@ -99,14 +240,76 @@
 		7E7966DB1810823500FA85AD /* icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76@2x.png"; sourceTree = "<group>"; };
 		7E7966DC1810823500FA85AD /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
 		7E7966DD1810823500FA85AD /* icon-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small@2x.png"; sourceTree = "<group>"; };
+		81E8B0C54CFA4B908D1D97E4 /* libicudata.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libicudata.a; path = Gold/Plugins/com.dooble.phonertc/libicudata.a; sourceTree = "<group>"; };
+		831D5D69B5F04FEF93D77858 /* libopus.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libopus.a; path = Gold/Plugins/com.dooble.phonertc/libopus.a; sourceTree = "<group>"; };
+		849ECBC4FC1042D4A5BA46E6 /* libjsoncpp.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libjsoncpp.a; path = Gold/Plugins/com.dooble.phonertc/libjsoncpp.a; sourceTree = "<group>"; };
+		8764D3582668439CB9047C0F /* RTCStatsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCStatsDelegate.h; path = com.dooble.phonertc/RTCStatsDelegate.h; sourceTree = "<group>"; };
+		876B4468907342738F50EC5C /* libaudio_processing_neon.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libaudio_processing_neon.a; path = Gold/Plugins/com.dooble.phonertc/libaudio_processing_neon.a; sourceTree = "<group>"; };
+		895612AAB0D644D3B6974341 /* libaudio_coding_module.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libaudio_coding_module.a; path = Gold/Plugins/com.dooble.phonertc/libaudio_coding_module.a; sourceTree = "<group>"; };
+		8BB93B26BE8142B7BB8BB185 /* RTCAudioTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCAudioTrack.h; path = com.dooble.phonertc/RTCAudioTrack.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Gold-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Gold-Info.plist"; path = "../Gold-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		91B84E01FD3C4888A1C5019D /* RTCNSGLVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCNSGLVideoView.h; path = com.dooble.phonertc/RTCNSGLVideoView.h; sourceTree = "<group>"; };
+		98E09E70B1554D2CAD4D9C26 /* PhoneRTCPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = PhoneRTCPlugin.swift; path = com.dooble.phonertc/PhoneRTCPlugin.swift; sourceTree = "<group>"; };
+		99930C54570E477C8F370A12 /* RTCICECandidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCICECandidate.h; path = com.dooble.phonertc/RTCICECandidate.h; sourceTree = "<group>"; };
+		9A62C93ECCED460285B7D43B /* RTCICEServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCICEServer.h; path = com.dooble.phonertc/RTCICEServer.h; sourceTree = "<group>"; };
+		9ADDD84955CF4E1A937897DA /* librtc_p2p.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = librtc_p2p.a; path = Gold/Plugins/com.dooble.phonertc/librtc_p2p.a; sourceTree = "<group>"; };
+		9B5FECF6AE53492CBB43C62A /* libvoice_engine.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libvoice_engine.a; path = Gold/Plugins/com.dooble.phonertc/libvoice_engine.a; sourceTree = "<group>"; };
+		9D3125A670F54994951C483A /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "com.dooble.phonertc/Bridging-Header.h"; sourceTree = "<group>"; };
+		9F1324499F3E445B951F0C7E /* RTCEAGLVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCEAGLVideoView.h; path = com.dooble.phonertc/RTCEAGLVideoView.h; sourceTree = "<group>"; };
+		A04C390AB7B04EA2BE9097E0 /* libaudio_device.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libaudio_device.a; path = Gold/Plugins/com.dooble.phonertc/libaudio_device.a; sourceTree = "<group>"; };
+		A2757E5BAF014CD4AF5EB7AD /* libsrtp.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libsrtp.a; path = Gold/Plugins/com.dooble.phonertc/libsrtp.a; sourceTree = "<group>"; };
+		A2DC7207321E4AEA82EA6A6C /* RTCVideoCapturer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCVideoCapturer.h; path = com.dooble.phonertc/RTCVideoCapturer.h; sourceTree = "<group>"; };
+		A3BA70B02CAF41FCAA0C9234 /* libwebrtc_utility.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libwebrtc_utility.a; path = Gold/Plugins/com.dooble.phonertc/libwebrtc_utility.a; sourceTree = "<group>"; };
+		A3CFF4C1D3CB4479AE8E9ECA /* RTCTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCTypes.h; path = com.dooble.phonertc/RTCTypes.h; sourceTree = "<group>"; };
+		A5076ED7DB6E44E78E24730F /* RTCAudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCAudioSource.h; path = com.dooble.phonertc/RTCAudioSource.h; sourceTree = "<group>"; };
+		A82672E62510400CB9EB2470 /* CoreMedia.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A91DCE10077D48E1BA7BD568 /* libisac_neon.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libisac_neon.a; path = Gold/Plugins/com.dooble.phonertc/libisac_neon.a; sourceTree = "<group>"; };
+		A93A06EF34064B11A1C65FA3 /* libicui18n.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libicui18n.a; path = Gold/Plugins/com.dooble.phonertc/libicui18n.a; sourceTree = "<group>"; };
+		AA22656719CB40F586636CBE /* libcrnssckbi.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libcrnssckbi.a; path = Gold/Plugins/com.dooble.phonertc/libcrnssckbi.a; sourceTree = "<group>"; };
+		AEB77B8087CD47F7AA743716 /* libsqlite_regexp.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libsqlite_regexp.a; path = Gold/Plugins/com.dooble.phonertc/libsqlite_regexp.a; sourceTree = "<group>"; };
+		B0908C4AD5F94ADCA119B862 /* librtc_base_approved.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = librtc_base_approved.a; path = Gold/Plugins/com.dooble.phonertc/librtc_base_approved.a; sourceTree = "<group>"; };
+		B2D3EB7EA8A44A41AA7BFF5B /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = Config.swift; path = com.dooble.phonertc/Config.swift; sourceTree = "<group>"; };
+		B4470C31219E4B8AB6FEBA5A /* librtc_xmllite.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = librtc_xmllite.a; path = Gold/Plugins/com.dooble.phonertc/librtc_xmllite.a; sourceTree = "<group>"; };
+		B488464F7836476C8210C70A /* libiSAC.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libiSAC.a; path = Gold/Plugins/com.dooble.phonertc/libiSAC.a; sourceTree = "<group>"; };
+		B52F298925BB405D8B920CFE /* libvpx_asm_offsets_vp8.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libvpx_asm_offsets_vp8.a; path = Gold/Plugins/com.dooble.phonertc/libvpx_asm_offsets_vp8.a; sourceTree = "<group>"; };
+		BA524EDCA7094ED1AE4A7AE8 /* libcommon_audio.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libcommon_audio.a; path = Gold/Plugins/com.dooble.phonertc/libcommon_audio.a; sourceTree = "<group>"; };
+		BE420DDC155848B08B55F878 /* CoreVideo.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		BEC0494AC8A246E2BCE71F2E /* RTCVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCVideoRenderer.h; path = com.dooble.phonertc/RTCVideoRenderer.h; sourceTree = "<group>"; };
+		BFEFEFED3AF34E3783B52910 /* RTCOpenGLVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCOpenGLVideoRenderer.h; path = com.dooble.phonertc/RTCOpenGLVideoRenderer.h; sourceTree = "<group>"; };
+		C146DB9DEF354C9CB639B962 /* libvideo_coding_utility.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libvideo_coding_utility.a; path = Gold/Plugins/com.dooble.phonertc/libvideo_coding_utility.a; sourceTree = "<group>"; };
+		C3A936450DBF4A94B1B1282E /* RTCMediaStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCMediaStream.h; path = com.dooble.phonertc/RTCMediaStream.h; sourceTree = "<group>"; };
+		C59FCF5CE1F84A15B05D9D0F /* AVFoundation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C6203EFFC6D84EFBBB8DFF12 /* RTCStatsReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCStatsReport.h; path = com.dooble.phonertc/RTCStatsReport.h; sourceTree = "<group>"; };
+		C7C47CC6B61B4D58BEB7A9CE /* librtp_rtcp.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = librtp_rtcp.a; path = Gold/Plugins/com.dooble.phonertc/librtp_rtcp.a; sourceTree = "<group>"; };
+		C808FCB5FFC84746A7B63D24 /* libvpx.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libvpx.a; path = Gold/Plugins/com.dooble.phonertc/libvpx.a; sourceTree = "<group>"; };
+		C84C8918CE0545B28B67AAC8 /* libc++.dylib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		CE5476EDCE4840CB99DBA2DA /* libjingle_media.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libjingle_media.a; path = Gold/Plugins/com.dooble.phonertc/libjingle_media.a; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		D6DE22D80E814249863DD30F /* libaudio_processing.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libaudio_processing.a; path = Gold/Plugins/com.dooble.phonertc/libaudio_processing.a; sourceTree = "<group>"; };
+		DC368E57DC0D4CC9916A8FDF /* libsystem_wrappers.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libsystem_wrappers.a; path = Gold/Plugins/com.dooble.phonertc/libsystem_wrappers.a; sourceTree = "<group>"; };
+		DCBF6823AC074411BF7BEDCE /* libcommon_audio_neon.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libcommon_audio_neon.a; path = Gold/Plugins/com.dooble.phonertc/libcommon_audio_neon.a; sourceTree = "<group>"; };
+		DF58C25256CF4AD3B4B9BAF8 /* libicuuc.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libicuuc.a; path = Gold/Plugins/com.dooble.phonertc/libicuuc.a; sourceTree = "<group>"; };
+		E18B5E4D39A8441697E1B265 /* PCObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = PCObserver.swift; path = com.dooble.phonertc/PCObserver.swift; sourceTree = "<group>"; };
+		E3D023835CF94D66A8B8F4CD /* libneteq.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libneteq.a; path = Gold/Plugins/com.dooble.phonertc/libneteq.a; sourceTree = "<group>"; };
+		E727E7A4FCC3480FB645E06F /* libiLBC.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libiLBC.a; path = Gold/Plugins/com.dooble.phonertc/libiLBC.a; sourceTree = "<group>"; };
+		E8F7C4C9487F4E78BF5F1371 /* librtc_sound.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = librtc_sound.a; path = Gold/Plugins/com.dooble.phonertc/librtc_sound.a; sourceTree = "<group>"; };
+		EB2D0E2860BE467492BDB0BA /* libvideo_engine_core.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libvideo_engine_core.a; path = Gold/Plugins/com.dooble.phonertc/libvideo_engine_core.a; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
-		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Gold/config.xml"; sourceTree = "<group>"; };
-		1CD0BD3152E04A9897EEEBDB /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		57D202C2DD3B4827A05DBF7A /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		F1255687899A4169975ACFDB /* libjingle_peerconnection_objc.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libjingle_peerconnection_objc.a; path = Gold/Plugins/com.dooble.phonertc/libjingle_peerconnection_objc.a; sourceTree = "<group>"; };
+		F27C8D7BB4954A029A8603F1 /* librtc_xmpp.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = librtc_xmpp.a; path = Gold/Plugins/com.dooble.phonertc/librtc_xmpp.a; sourceTree = "<group>"; };
+		F363BBD41BF246DF830866E6 /* CoreAudio.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		F431192E8DD54BBDBE904FB7 /* librbe_components.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = librbe_components.a; path = Gold/Plugins/com.dooble.phonertc/librbe_components.a; sourceTree = "<group>"; };
+		F4E3C08808F74C669ED72A40 /* RTCPeerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCPeerConnection.h; path = com.dooble.phonertc/RTCPeerConnection.h; sourceTree = "<group>"; };
+		F7B21F31BA484DF8A9638687 /* libbitrate_controller.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libbitrate_controller.a; path = Gold/Plugins/com.dooble.phonertc/libbitrate_controller.a; sourceTree = "<group>"; };
+		F7CB7DDD95104AF8BE38AAF7 /* QuartzCore.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F7E48326AFA842A5A384A61A /* RTCSessionDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCSessionDescription.h; path = com.dooble.phonertc/RTCSessionDescription.h; sourceTree = "<group>"; };
+		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Gold/config.xml; sourceTree = "<group>"; };
+		F99FB7450D0A4959B55E1E80 /* GLKit.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		FB2ED0419207437D8A863F5C /* RTCDataChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCDataChannel.h; path = com.dooble.phonertc/RTCDataChannel.h; sourceTree = "<group>"; };
+		FD7265F7D4C4420A838F4F26 /* RTCMediaSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCMediaSource.h; path = com.dooble.phonertc/RTCMediaSource.h; sourceTree = "<group>"; };
+		FD97C21F077448D099F15BF2 /* libvideo_capture_module.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libvideo_capture_module.a; path = Gold/Plugins/com.dooble.phonertc/libvideo_capture_module.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +321,90 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
+				E06BEF96C525474DA305548C /* libjingle_p2p.a in Frameworks */,
+				C974B3B07EAC4608BC237EC9 /* lib_core_neon_offsets.a in Frameworks */,
+				67A2D16AE2464F5CB2F7143A /* libaudio_coding_module.a in Frameworks */,
+				31ECD529D88C46258CD0C008 /* libaudio_conference_mixer.a in Frameworks */,
+				4628F76A4B3B41EB92BF0649 /* libaudio_device.a in Frameworks */,
+				A0AAAD5D03724EEBAEAD0602 /* libaudio_processing_neon.a in Frameworks */,
+				75EEBD18175440D49CD398F4 /* libaudio_processing.a in Frameworks */,
+				8C8DFFF677534D68BB8BFCB6 /* libbitrate_controller.a in Frameworks */,
+				5C77F3C602CD4B4FA4EEE75A /* libCNG.a in Frameworks */,
+				870C9299ADBA460D9CF5DDDC /* libcommon_audio_neon.a in Frameworks */,
+				81FD9ED27D544158B0AC967F /* libcommon_audio.a in Frameworks */,
+				1E28D6BD2E4B4826A9252CCC /* libcommon_video.a in Frameworks */,
+				89F7CCDD85B246ACB0066E6F /* libcrnspr.a in Frameworks */,
+				8F200FB886D944ED836F13BA /* libcrnss.a in Frameworks */,
+				77440A87BD5F47108EC18A7F /* libcrnssckbi.a in Frameworks */,
+				8DBA5191E05F4143AEA24D47 /* libcrssl.a in Frameworks */,
+				C65BB01A73904EBCA3B65853 /* libexpat.a in Frameworks */,
+				0D9AF1032AF04A88BDBAB92E /* libfield_trial_default.a in Frameworks */,
+				6708627DEE694458BFA43160 /* libG711.a in Frameworks */,
+				7DFDD34F873E499999C2505F /* libG722.a in Frameworks */,
+				8EC8E1E295F64D1B98A248F8 /* libicudata.a in Frameworks */,
+				2F74BC813F0048D49080831B /* libicui18n.a in Frameworks */,
+				2CAC812B4E3A4B73B58B6F1F /* libicuuc.a in Frameworks */,
+				06D25F134FF346E799E4BB18 /* libiLBC.a in Frameworks */,
+				0349F8E123734061A2CD373B /* libisac_neon.a in Frameworks */,
+				75F2B3DC8E264174A464B9CE /* libiSAC.a in Frameworks */,
+				48C1C23E3CB04127A9299BA2 /* libiSACFix.a in Frameworks */,
+				169B69A4ECAA4E9F9BC09671 /* libjingle_media.a in Frameworks */,
+				D203B2A4DBB140E5A8949F3D /* libjingle_peerconnection_objc.a in Frameworks */,
+				0A72006218644EC6AAB0489C /* libjingle_peerconnection.a in Frameworks */,
+				459C336833EC4ADC9CD74ADB /* libjsoncpp.a in Frameworks */,
+				7685977FF17F4B6BA48EB1DE /* libmedia_file.a in Frameworks */,
+				6E499462428C4226A3CA584B /* libneteq.a in Frameworks */,
+				12E698F56F424CFFABA8D63D /* libnss_static.a in Frameworks */,
+				1BE742E5C0CA4538A01A3972 /* libmetrics_default.a in Frameworks */,
+				613D8071893D48809C24C1E2 /* librtc_p2p.a in Frameworks */,
+				98E2E552E96F4A7284EBCEE7 /* libwebrtc_vp9.a in Frameworks */,
+				AE1B3E36AA4E4C58A9FD358F /* librtc_xmpp.a in Frameworks */,
+				72C89E7D05BD40BD8CFC6817 /* libopus.a in Frameworks */,
+				54D3D6E84E16434DBED13740 /* libpaced_sender.a in Frameworks */,
+				004371C0920A498798ADAC2C /* libPCM16B.a in Frameworks */,
+				24E78F601F794EAA855A0D7C /* librbe_components.a in Frameworks */,
+				54203C64319C4A79AE141566 /* libremote_bitrate_estimator.a in Frameworks */,
+				5BAD6BAF280942D89243F941 /* librtc_base_approved.a in Frameworks */,
+				E94B8B4F850340799B983FB4 /* librtc_base.a in Frameworks */,
+				EEA3256FFB2E4B3E800E4898 /* librtc_sound.a in Frameworks */,
+				6F428F7D9DA145F3BC09F1DA /* librtc_xmllite.a in Frameworks */,
+				7F5749D8C8E14058B8928CC5 /* librtp_rtcp.a in Frameworks */,
+				4234A407693440EF8FEF66A2 /* libsqlite_regexp.a in Frameworks */,
+				19C89533FE724874A424DC05 /* libsrtp.a in Frameworks */,
+				64374DEABEE544E09DBFE47E /* libsystem_wrappers.a in Frameworks */,
+				36B0FB3BAB5D472F8432E6AF /* libusrsctplib.a in Frameworks */,
+				5271785785CE4D06BAA247ED /* libvideo_capture_module_internal_impl.a in Frameworks */,
+				C94BCEB3156948359059C9E6 /* libvideo_capture_module.a in Frameworks */,
+				595F6767DB1F467884587A9E /* libvideo_coding_utility.a in Frameworks */,
+				E3F13ABEAAAD4916BAFE0D7D /* libvideo_engine_core.a in Frameworks */,
+				79843DB0C439400187537F01 /* libvideo_processing.a in Frameworks */,
+				EB50F8BC630B431B95FB4B06 /* libvideo_render_module_internal_impl.a in Frameworks */,
+				3C6FCCDF14F54365B8081413 /* libvideo_render_module.a in Frameworks */,
+				CEF5B580F4C14AC78BFF6FCC /* libvoice_engine.a in Frameworks */,
+				9713A52C616D4544904E3C68 /* libvpx_asm_offsets_vp8.a in Frameworks */,
+				63206A143B984CE6872BBD07 /* libvpx_asm_offsets_vpx_scale.a in Frameworks */,
+				C707C43F90D741AD861BDA7C /* libvpx.a in Frameworks */,
+				C78711111B334740B935D2E1 /* libwebrtc_common.a in Frameworks */,
+				E110A534682549D990C52C0E /* libwebrtc_i420.a in Frameworks */,
+				B1CD949B0BF24CDD94FC9D46 /* libwebrtc_opus.a in Frameworks */,
+				2C18667251134F6E9247DF47 /* libwebrtc_utility.a in Frameworks */,
+				2642E78BD4EF48398699347C /* libwebrtc_video_coding.a in Frameworks */,
+				5EDE8A8C451D4A368C032CC1 /* libwebrtc_vp8.a in Frameworks */,
+				55EF23553A0A4B209802AF7D /* libwebrtc.a in Frameworks */,
+				C22D4DC5272B4456A22ECB9F /* libyuv_neon.a in Frameworks */,
+				725DBDA163D9490F87A86048 /* libyuv.a in Frameworks */,
+				914AB4D3A26C4829A017517B /* libc++.dylib in Frameworks */,
+				0A802524D8464F35A5086FD5 /* libstdc++.dylib in Frameworks */,
+				68634FE49C8D4D99AC8007E2 /* libsqlite3.0.dylib in Frameworks */,
+				7C4ECE33C7D04FD78D62F1DA /* OpenGLES.framework in Frameworks */,
+				6D45F4981F4140B28C19EBE6 /* CoreVideo.framework in Frameworks */,
+				2DABEC4B49CC4D6FA7A1FD22 /* CoreMedia.framework in Frameworks */,
+				0280231F2CE248BFAFE6D6C6 /* CoreAudio.framework in Frameworks */,
+				DA5B75407D5C49FFA5984636 /* AVFoundation.framework in Frameworks */,
+				77FCBE80973A479EA9A507BA /* QuartzCore.framework in Frameworks */,
+				0D42A14E3E32499E82A4541B /* CoreLocation.framework in Frameworks */,
+				9EC935412386424186346F72 /* AudioToolbox.framework in Frameworks */,
+				3E2005059EEC4415B110EFC8 /* GLKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +421,7 @@
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
 			);
 			name = Classes;
-			path = "Gold/Classes";
+			path = Gold/Classes;
 			sourceTree = SOURCE_ROOT;
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -170,7 +457,7 @@
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
-			path = "Gold";
+			path = Gold;
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -181,7 +468,7 @@
 				8D1107310486CEB800E47090 /* Gold-Info.plist */,
 			);
 			name = Resources;
-			path = "Gold/Resources";
+			path = Gold/Resources;
 			sourceTree = "<group>";
 		};
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
@@ -190,6 +477,90 @@
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
+				28F4F7CB44284F4789E0B948 /* libjingle_p2p.a */,
+				12CE9E5A38884B60B2EAEE4A /* lib_core_neon_offsets.a */,
+				895612AAB0D644D3B6974341 /* libaudio_coding_module.a */,
+				7C52E125CB72470ABE0C576A /* libaudio_conference_mixer.a */,
+				A04C390AB7B04EA2BE9097E0 /* libaudio_device.a */,
+				876B4468907342738F50EC5C /* libaudio_processing_neon.a */,
+				D6DE22D80E814249863DD30F /* libaudio_processing.a */,
+				F7B21F31BA484DF8A9638687 /* libbitrate_controller.a */,
+				2FF93E4E3DA34C25A6E42865 /* libCNG.a */,
+				DCBF6823AC074411BF7BEDCE /* libcommon_audio_neon.a */,
+				BA524EDCA7094ED1AE4A7AE8 /* libcommon_audio.a */,
+				72EBB3D7CCA84271996E56EC /* libcommon_video.a */,
+				535C041D54D84F23A631BAC9 /* libcrnspr.a */,
+				52038115DD754F5D8F18A82C /* libcrnss.a */,
+				AA22656719CB40F586636CBE /* libcrnssckbi.a */,
+				482C1129113748E6BBAC0243 /* libcrssl.a */,
+				6B68F70C71CE47AC8263188F /* libexpat.a */,
+				5A160FDB7A2445C3AC0923A7 /* libfield_trial_default.a */,
+				22F566D375F6463A9D792464 /* libG711.a */,
+				5186421D6315435584DA9C48 /* libG722.a */,
+				81E8B0C54CFA4B908D1D97E4 /* libicudata.a */,
+				A93A06EF34064B11A1C65FA3 /* libicui18n.a */,
+				DF58C25256CF4AD3B4B9BAF8 /* libicuuc.a */,
+				E727E7A4FCC3480FB645E06F /* libiLBC.a */,
+				A91DCE10077D48E1BA7BD568 /* libisac_neon.a */,
+				B488464F7836476C8210C70A /* libiSAC.a */,
+				47ABB88B4E084423B2327F86 /* libiSACFix.a */,
+				CE5476EDCE4840CB99DBA2DA /* libjingle_media.a */,
+				F1255687899A4169975ACFDB /* libjingle_peerconnection_objc.a */,
+				0889EE1C77784400BC140863 /* libjingle_peerconnection.a */,
+				849ECBC4FC1042D4A5BA46E6 /* libjsoncpp.a */,
+				6CBF0EF0BC0C4D4A8BEC1DE8 /* libmedia_file.a */,
+				E3D023835CF94D66A8B8F4CD /* libneteq.a */,
+				148A3C72FCBF494B8ACD4C8F /* libnss_static.a */,
+				4EE3064D27FC4D8398035AF3 /* libmetrics_default.a */,
+				9ADDD84955CF4E1A937897DA /* librtc_p2p.a */,
+				486EC40E02B841129A2E79DC /* libwebrtc_vp9.a */,
+				F27C8D7BB4954A029A8603F1 /* librtc_xmpp.a */,
+				831D5D69B5F04FEF93D77858 /* libopus.a */,
+				1C336E724DFF454A95F173FC /* libpaced_sender.a */,
+				246CEE1447254C60864E14D3 /* libPCM16B.a */,
+				F431192E8DD54BBDBE904FB7 /* librbe_components.a */,
+				58CE96A4168D4C4398F02291 /* libremote_bitrate_estimator.a */,
+				B0908C4AD5F94ADCA119B862 /* librtc_base_approved.a */,
+				04F061E99AAC4141B0685307 /* librtc_base.a */,
+				E8F7C4C9487F4E78BF5F1371 /* librtc_sound.a */,
+				B4470C31219E4B8AB6FEBA5A /* librtc_xmllite.a */,
+				C7C47CC6B61B4D58BEB7A9CE /* librtp_rtcp.a */,
+				AEB77B8087CD47F7AA743716 /* libsqlite_regexp.a */,
+				A2757E5BAF014CD4AF5EB7AD /* libsrtp.a */,
+				DC368E57DC0D4CC9916A8FDF /* libsystem_wrappers.a */,
+				357E3037A9584494AFE562BF /* libusrsctplib.a */,
+				2FA281136DF14BE3843750A7 /* libvideo_capture_module_internal_impl.a */,
+				FD97C21F077448D099F15BF2 /* libvideo_capture_module.a */,
+				C146DB9DEF354C9CB639B962 /* libvideo_coding_utility.a */,
+				EB2D0E2860BE467492BDB0BA /* libvideo_engine_core.a */,
+				0D98F374B8E144979FF46F06 /* libvideo_processing.a */,
+				3335328C9B8849F587E39358 /* libvideo_render_module_internal_impl.a */,
+				6D876E083E6A4FADA829C05D /* libvideo_render_module.a */,
+				9B5FECF6AE53492CBB43C62A /* libvoice_engine.a */,
+				B52F298925BB405D8B920CFE /* libvpx_asm_offsets_vp8.a */,
+				015C19D5C19E471BAE7271FE /* libvpx_asm_offsets_vpx_scale.a */,
+				C808FCB5FFC84746A7B63D24 /* libvpx.a */,
+				19788D5AB4564A7C9FF5340C /* libwebrtc_common.a */,
+				4082B1CD6C524FBBBECCF1F2 /* libwebrtc_i420.a */,
+				46F4F77CCDA644B492C91852 /* libwebrtc_opus.a */,
+				A3BA70B02CAF41FCAA0C9234 /* libwebrtc_utility.a */,
+				0D0B822900FA4D3BAA6575DC /* libwebrtc_video_coding.a */,
+				74D814F8063B4352869AB5A7 /* libwebrtc_vp8.a */,
+				5E75C2E3461140E5A4BB7757 /* libwebrtc.a */,
+				142BF22C27104B52865708AD /* libyuv_neon.a */,
+				7B55D33343B54259B39DEA90 /* libyuv.a */,
+				C84C8918CE0545B28B67AAC8 /* libc++.dylib */,
+				12FBA6361CA340358CADCCFA /* libstdc++.dylib */,
+				16ED48E98BA842869C8ACF5C /* libsqlite3.0.dylib */,
+				0EE7AE599C234DAE886C1701 /* OpenGLES.framework */,
+				BE420DDC155848B08B55F878 /* CoreVideo.framework */,
+				A82672E62510400CB9EB2470 /* CoreMedia.framework */,
+				F363BBD41BF246DF830866E6 /* CoreAudio.framework */,
+				C59FCF5CE1F84A15B05D9D0F /* AVFoundation.framework */,
+				F7CB7DDD95104AF8BE38AAF7 /* QuartzCore.framework */,
+				765D107D741044AB932418B0 /* CoreLocation.framework */,
+				7E19552DE4E24BB89BE4DF3A /* AudioToolbox.framework */,
+				F99FB7450D0A4959B55E1E80 /* GLKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -207,9 +578,41 @@
 			children = (
 				1CD0BD3152E04A9897EEEBDB /* CDVInAppBrowser.m */,
 				57D202C2DD3B4827A05DBF7A /* CDVInAppBrowser.h */,
+				98E09E70B1554D2CAD4D9C26 /* PhoneRTCPlugin.swift */,
+				E18B5E4D39A8441697E1B265 /* PCObserver.swift */,
+				49F9868C9F7244A2AC314D90 /* Session.swift */,
+				B2D3EB7EA8A44A41AA7BFF5B /* Config.swift */,
+				03F60362B1A8478FB4FFECD7 /* SessionDescriptionDelegate.swift */,
+				A5076ED7DB6E44E78E24730F /* RTCAudioSource.h */,
+				8BB93B26BE8142B7BB8BB185 /* RTCAudioTrack.h */,
+				FB2ED0419207437D8A863F5C /* RTCDataChannel.h */,
+				9F1324499F3E445B951F0C7E /* RTCEAGLVideoView.h */,
+				18141CCB779A4BC2BD1C29CA /* RTCI420Frame.h */,
+				99930C54570E477C8F370A12 /* RTCICECandidate.h */,
+				9A62C93ECCED460285B7D43B /* RTCICEServer.h */,
+				1F4D9B29134E4BE986690B74 /* RTCMediaConstraints.h */,
+				FD7265F7D4C4420A838F4F26 /* RTCMediaSource.h */,
+				C3A936450DBF4A94B1B1282E /* RTCMediaStream.h */,
+				6F4C3FCC16084DC4A9F3F041 /* RTCMediaStreamTrack.h */,
+				91B84E01FD3C4888A1C5019D /* RTCNSGLVideoView.h */,
+				BFEFEFED3AF34E3783B52910 /* RTCOpenGLVideoRenderer.h */,
+				047A00E59F1A46CBAB77ECE0 /* RTCPair.h */,
+				F4E3C08808F74C669ED72A40 /* RTCPeerConnection.h */,
+				59F8D256BD4A4815AB1AA443 /* RTCPeerConnectionDelegate.h */,
+				3F1101F9D7784A5990E54768 /* RTCPeerConnectionFactory.h */,
+				F7E48326AFA842A5A384A61A /* RTCSessionDescription.h */,
+				4D1280FDFDA04656B0A7A2B4 /* RTCSessionDescriptionDelegate.h */,
+				8764D3582668439CB9047C0F /* RTCStatsDelegate.h */,
+				C6203EFFC6D84EFBBB8DFF12 /* RTCStatsReport.h */,
+				A3CFF4C1D3CB4479AE8E9ECA /* RTCTypes.h */,
+				A2DC7207321E4AEA82EA6A6C /* RTCVideoCapturer.h */,
+				BEC0494AC8A246E2BCE71F2E /* RTCVideoRenderer.h */,
+				2387C014E38948FAAF395647 /* RTCVideoSource.h */,
+				2D80AC9833DF4ED09E7756EA /* RTCVideoTrack.h */,
+				9D3125A670F54994951C483A /* Bridging-Header.h */,
 			);
 			name = Plugins;
-			path = "Gold/Plugins";
+			path = Gold/Plugins;
 			sourceTree = SOURCE_ROOT;
 		};
 		308D052D1370CCF300D202BF /* icons */ = {
@@ -277,8 +680,8 @@
 			dependencies = (
 				301BF551109A68C00062928A /* PBXTargetDependency */,
 			);
-			name = "Gold";
-			productName = "Gold";
+			name = Gold;
+			productName = Gold;
 			productReference = 1D6058910D05DD3D006BFB54 /* Gold.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -290,7 +693,7 @@
 			attributes = {
 				LastUpgradeCheck = 510;
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "__CLI__" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Gold" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -392,6 +795,11 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				C78B7DC461E144C8B52B83CD /* CDVInAppBrowser.m in Sources */,
+				E745A82AE71A4F108389EE6B /* PhoneRTCPlugin.swift in Sources */,
+				9434E905DD804708BCCB1D57 /* PCObserver.swift in Sources */,
+				F29B695EE5164C0E86AF66C3 /* Session.swift in Sources */,
+				C836DE7FE15E4078B3B20F5F /* Config.swift in Sources */,
+				840688E17C8B4C839E6BC6BC /* SessionDescriptionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +827,82 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Gold/Gold-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+				);
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -432,7 +915,7 @@
 					"-weak-lSystem",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "Gold";
+				PRODUCT_NAME = Gold;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -448,7 +931,82 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Gold/Gold-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+					"\"$(SRCROOT)/Gold/Plugins/com.dooble.phonertc\"",
+				);
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -461,7 +1019,7 @@
 					"-weak-lSystem",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "Gold";
+				PRODUCT_NAME = Gold;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -490,8 +1048,9 @@
 					"\"$(OBJROOT)/UninstalledProducts/include\"",
 					"\"$(BUILT_PRODUCTS_DIR)\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -506,7 +1065,9 @@
 				);
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Gold/Plugins/com.dooble.phonertc/Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -534,7 +1095,9 @@
 					"\"$(OBJROOT)/UninstalledProducts/include\"",
 					"\"$(BUILT_PRODUCTS_DIR)\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -549,7 +1112,9 @@
 				);
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Gold/Plugins/com.dooble.phonertc/Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
@@ -565,7 +1130,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "__CLI__" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Gold" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
