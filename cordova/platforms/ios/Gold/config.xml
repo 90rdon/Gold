@@ -22,9 +22,6 @@
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
-    <feature name="PhoneRTCPlugin">
-        <param name="ios-package" value="PhoneRTCPlugin" />
-    </feature>
     <name>Gold</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -35,4 +32,9 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="DisallowOverscroll" value="true" />
+    <plugins>
+        <feature name="OpenTokPlugin">
+            <param name="ios-package" value="OpenTokPlugin" />
+        </feature>
+    </plugins>
 </widget>

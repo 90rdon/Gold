@@ -3,11 +3,11 @@
 	[
 		{
 			"follow_symlinks": true,
-			"path": "/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/app"
+			"path": "app"
 		},
 		{
 			"follow_symlinks": true,
-			"path": "/Users/superstitio/Documents/workspace/sandbox/ember.js/gold"
+			"path": "."
 		},
 		{
 			"follow_symlinks": true,

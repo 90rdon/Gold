@@ -10,11 +10,12 @@ module.exports = function(environment) {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+        // 'ember-htmlbars': true
       }
     },
 
     APP: {
-      firebaseUri: 'https://linguis.firebaseio.com/',
+      firebaseUri: 'https://linguis.firebaseio.com',
       linguisEndpoint: ''
     },
 
@@ -28,12 +29,14 @@ module.exports = function(environment) {
     // },
 
     contentSecurityPolicy: {
-      'default-src': "'none'",
-      'script-src': "'self' http://127.0.0.1:35729",
+      'default-src': "'self'",
+      'script-src': "'self' http://127.0.0.1:35729 https://*.firebase.com https://*.firebaseio.com",
+      'frame-src': "'self' http://127.0.0.1:35729 //*.firebase.com //*.firebaseio.com",
       'font-src': "'self'",
-      'connect-src': "'self' ws://127.0.0.1:35729",
+      'connect-src': "'self' ws://127.0.0.1:35729 wss://*.firebaseio.com",
       'img-src': "'self'",
       'style-src': "'self'",
+      'report-uri': "'self' https://*.firebase.com https://*.firebaseio.com",
       'media-src': "'self'"
     },
   };

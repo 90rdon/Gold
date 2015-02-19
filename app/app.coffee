@@ -13,7 +13,7 @@ App = Ember.Application.extend
 App.reopen
   ready: ->
     console.log 'App ready!! --- init firebaseUri ---'
-    @__container__.lookup('store:main').set('firebaseRoot', @get('firebaseUri'))
+    @__container__.lookup('store:main').set('firebaseRoot', config.APP.firebaseUri)
     console.log 'App initialized'
 
 loadInitializers(App, config.modulePrefix)

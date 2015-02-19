@@ -1,0 +1,12 @@
+{
+    "version": "1.0.2",
+    "name": "com.tokbox.cordova.opentok",
+    "cordova_name": "OpenTok Cordova Plugin",
+    "description": "Add live video streaming to your Cordova Application",
+    "license": "Apache 2.0",
+    "keywords": [
+        "opentok",
+        "tokbox"
+    ],
+    "engines": []
+}

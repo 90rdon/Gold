@@ -10,7 +10,4 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="DisallowOverscroll" value="true" />
-    <feature name="PhoneRTCPlugin">
-        <param name="browser-package" value="PhoneRTCPlugin" />
-    </feature>
 </widget>

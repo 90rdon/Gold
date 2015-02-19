@@ -7,12 +7,7 @@
         "files": {
             "config.xml": {
                 "parents": {
-                    "/*": [
-                        {
-                            "xml": "<feature name=\"PhoneRTCPlugin\"><param name=\"browser-package\" value=\"PhoneRTCPlugin\" /></feature>",
-                            "count": 1
-                        }
-                    ]
+                    "/*": []
                 }
             }
         }
@@ -21,7 +16,7 @@
         "org.apache.cordova.inappbrowser": {
             "PACKAGE_NAME": "is.lingu.gold"
         },
-        "com.dooble.phonertc": {
+        "com.tokbox.cordova.opentok": {
             "PACKAGE_NAME": "is.lingu.gold"
         }
     },
