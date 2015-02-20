@@ -11,7 +11,7 @@ initialize = (container, app) ->
 
 presenceInitializer =
   name: 'presence'
-  after: 'store'
+  after: 'fireplace'
   initialize: initialize
 
 `export {initialize}`

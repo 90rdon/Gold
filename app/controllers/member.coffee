@@ -16,10 +16,6 @@ memberController = Ember.ObjectController.extend
     null
   ).property()
 
-  init: ->
-    self = @
-    @set('store', App.__container__.lookup('store:main'))
-
   block: (->
     if @get('content.logon')
       if @get('isMe')

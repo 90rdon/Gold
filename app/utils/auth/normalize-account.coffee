@@ -32,16 +32,16 @@ normalizeAccount =
       # id:               profile.uuid
       first:            ''
       last:             ''
-      displayName:      profile.login || ''
-      name:             profile.login || ''
+      displayName:      profile.github.displayName || ''
+      name:             profile.github.username || ''
       tagline:          ''
       bio:              ''
-      image:            profile.avatar_url
+      image:            profile.github.cachedUserProfile.avatar_url
       favourites_count: 0
-      followers_count:  profile.followers
+      followers_count:  profile.github.cachedUserProfile.followers
       friends_count:    0
-      emails:           profile.emails
-      url:              profile.url
+      email:            profile.github.email
+      url:              profile.github.cachedUserProfile.url
       profiles:         []
 
     user.get('profiles').addObject(profileRef)

@@ -13,6 +13,9 @@ sessionController = Ember.ObjectController.extend
   memberObj:        null
   memberSessionRef: null
 
+  init: ->
+    @_super()
+
   memberDisplayName: (->
     return null  unless @get('memberRef')
     @get('memberRef').toFirebaseJSON().display_name

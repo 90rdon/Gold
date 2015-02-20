@@ -5,6 +5,7 @@ authenticationController = Ember.Controller.extend
   needs: [
     'profile'
     'profiles'
+    'member'
     # 'session'
   ]
 
@@ -40,15 +41,15 @@ authenticationController = Ember.Controller.extend
     @get('controllers.profiles').findAll(authData.uid).then (profiles) ->
       if profiles.get('length') is 0
         # New Member
-        @get('controllers.member').create(identity).then (memberRef) ->
+        self.get('controllers.member').create(authData).then (memberRef) ->
           self.set('member', memberRef)
       else
         # Existing Member
         profile = profiles.get('lastObject').toFirebaseJSON()
-        @get('controllers.member').findRefByUuid(profile.uuid).then (memberRef) ->
+        self.get('controllers.member').findRefByUuid(profile.uuid).then (memberRef) ->
           self.set('member', memberRef)
         , (notFound) ->
-          @get('controllers.member').create(identity).then (memberRef) ->
+          self.get('controllers.member').create(authData).then (memberRef) ->
           self.set('member', memberRef)
 
   invalidate: ->

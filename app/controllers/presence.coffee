@@ -11,6 +11,7 @@ presenceController = Ember.Controller.extend
 
   init: ->
     self = @
+    @_super()
     @set('connectedRef', new Firebase(config.APP.firebaseUri + '/.info/connected'))
     
     @get('connectedRef').on 'value', (ispresence) ->

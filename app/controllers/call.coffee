@@ -1,8 +1,4 @@
 callController = Ember.ObjectController.extend
-  init: ->
-    self = @
-    @set('store', App.__container__.lookup('store:main'))
-
   callRef: null
 
   connected: (->
