@@ -8,15 +8,15 @@ normalizeAccount =
       # id:               profile.uuid
       first:            ''
       last:             ''
-      displayName:      profile.screen_name
-      name:             profile.name
-      tagline:          profile.description
-      bio:              profile.description
-      image:            profile.profile_image_url
-      favourites_count: profile.favourites_count
-      followers_count:  profile.followers_count
-      friends_count:    profile.friends_count
-      url:              profile.url
+      displayName:      profile.twitter.cachedUserProfile.screen_name
+      name:             profile.twitter.cachedUserProfile.name
+      tagline:          ''
+      bio:              profile.twitter.cachedUserProfile.description
+      image:            profile.twitter.cachedUserProfile.profile_image_url
+      favourites_count: profile.twitter.cachedUserProfile.favourites_count
+      followers_count:  profile.twitter.cachedUserProfile.followers_count
+      friends_count:    profile.twitter.cachedUserProfile.friends_count
+      url:              profile.twitter.cachedUserProfile.url
       profiles:         []
       
     user.get('profiles').addObject(profileRef)
@@ -55,18 +55,18 @@ normalizeAccount =
     profile = profileRef.toFirebaseJSON().identity
     user = Ember.Object.create
       # id:               profile.uuid
-      first:            profile.first_name || ''
-      last:             profile.last_name || ''
-      displayName:      profile.name || ''
-      name:             profile.username || ''
+      first:            profile.facebook.cachedUserProfile.first_name || ''
+      last:             profile.facebook.cachedUserProfile.last_name || ''
+      displayName:      profile.facebook.cachedUserProfile.displayName || ''
+      name:             profile.facebook.cachedUserProfile.name || ''
       tagline:          ''
       bio:              ''
-      image:            0
+      image:            profile.facebook.cachedUserProfile.picture.data.url
       favourites_count: 0
       followers_count:  0
       friends_count:    0
       emails:           ''
-      url:              profile.link
+      url:              profile.facebook.cachedUserProfile.link
       profiles:         []
 
     user.get('profiles').addObject(profileRef)

@@ -11,6 +11,9 @@ authenticationController = Ember.Controller.extend
 
   sessionRef:    null
   authenticated: false
+  thisself: (->
+    @
+  ).property('@')
 
   init: ->
     self = @
@@ -25,6 +28,8 @@ authenticationController = Ember.Controller.extend
 
   login: (provider) ->
     return @firebaseRef.authWithOAuthPopup('github', @authHandler)  if (provider is 'github')
+    return @firebaseRef.authWithOAuthPopup('facebook', @authHandler)  if (provider is 'facebook')
+    return @firebaseRef.authWithOAuthPopup('twitter', @authHandler)  if (provider is 'twitter')
     null
 
   logout: ->
@@ -32,8 +37,8 @@ authenticationController = Ember.Controller.extend
     @invalidate()
 
   authHandler: (error, authData) ->
-    return @invalidate  if (error)
-    @set('authenticated', true)
+    return Gold.__container__.lookup('controller:authentication').invalidate()  if (error)
+    Gold.__container__.lookup('controller:authentication').set('authenticated', true)
 
   # --- authenticating to our app now ---
   authenticate: (authData) ->
