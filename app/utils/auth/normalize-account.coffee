@@ -5,47 +5,57 @@ normalizeAccount =
   Twitter: (profileRef) ->
     profile = profileRef.toFirebaseJSON().identity
     user = Ember.Object.create
-      # id:               profile.uuid
+      uid:              profileRef.toFirebaseJSON().uid
       first:            ''
       last:             ''
-      displayName:      profile.twitter.cachedUserProfile.screen_name
-      name:             profile.twitter.cachedUserProfile.name
+      displayName:      profile.screen_name || ''
+      name:             profile.name || ''
       tagline:          ''
-      bio:              profile.twitter.cachedUserProfile.description
-      image:            profile.twitter.cachedUserProfile.profile_image_url
-      favourites_count: profile.twitter.cachedUserProfile.favourites_count
-      followers_count:  profile.twitter.cachedUserProfile.followers_count
-      friends_count:    profile.twitter.cachedUserProfile.friends_count
-      url:              profile.twitter.cachedUserProfile.url
+      bio:              profile.description || ''
+      image:            profile.profile_image_url || ''
+      favourites_count: profile.favourites_count || 0
+      followers_count:  profile.followers_count || 0
+      friends_count:    profile.friends_count || 0
+      primary_email:    ''
+      emails:           []
+      url:              profile.url || ''
       profiles:         []
       
-    user.get('profiles').addObject(profileRef)
+    user.get('profiles').addObject(profile)
     user
 
+  TwitterCachedUser: (authData) ->
+    authData.twitter.cachedUserProfile
 
   # ----------------------------------------
   # Github
   # ----------------------------------------
   Github: (profileRef) ->
     profile = profileRef.toFirebaseJSON().identity
+    emailObj = profile.emails.find (item, index, self) ->
+      item  if item.primary
     user = Ember.Object.create
-      # id:               profile.uuid
+      uid:              profileRef.toFirebaseJSON().uid
       first:            ''
       last:             ''
-      displayName:      profile.github.displayName || ''
-      name:             profile.github.username || ''
+      displayName:      profile.name || ''
+      name:             profile.login || ''
       tagline:          ''
       bio:              ''
-      image:            profile.github.cachedUserProfile.avatar_url
+      image:            profile.avatar_url || ''
       favourites_count: 0
-      followers_count:  profile.github.cachedUserProfile.followers
+      followers_count:  profile.followers || 0
       friends_count:    0
-      email:            profile.github.email
-      url:              profile.github.cachedUserProfile.url
+      primary_email:    emailObj.email || ''
+      emails:           profile.emails || []
+      url:              profile.url || ''
       profiles:         []
 
     user.get('profiles').addObject(profileRef)
     user
+
+  GithubCachedUser: (authData) ->
+    authData.github.cachedUserProfile
 
 
   # ----------------------------------------
@@ -54,22 +64,26 @@ normalizeAccount =
   Facebook: (profileRef) ->
     profile = profileRef.toFirebaseJSON().identity
     user = Ember.Object.create
-      # id:               profile.uuid
-      first:            profile.facebook.cachedUserProfile.first_name || ''
-      last:             profile.facebook.cachedUserProfile.last_name || ''
-      displayName:      profile.facebook.cachedUserProfile.displayName || ''
-      name:             profile.facebook.cachedUserProfile.name || ''
+      uid:              profileRef.toFirebaseJSON().uid
+      first:            profile.first_name || ''
+      last:             profile.last_name || ''
+      displayName:      profile.displayName || ''
+      name:             profile.name || ''
       tagline:          ''
       bio:              ''
-      image:            profile.facebook.cachedUserProfile.picture.data.url
+      image:            profile.picture.data.url || ''
       favourites_count: 0
       followers_count:  0
       friends_count:    0
-      emails:           ''
-      url:              profile.facebook.cachedUserProfile.link
+      primary_email:    ''
+      emails:           []
+      url:              profile.link || ''
       profiles:         []
 
-    user.get('profiles').addObject(profileRef)
+    user.get('profiles').addObject(profile)
     user
+
+  FacebookCachedUser: (authData) ->
+    authData.facebook.cachedUserProfile
 
 `export default normalizeAccount`

@@ -1,6 +1,7 @@
 `import {Model, attr, hasMany} from 'fireplace'`
 
 member    = Model.extend
+  uid:              attr()
   first:            attr()
   last:             attr()
   displayName:      attr()
@@ -11,12 +12,14 @@ member    = Model.extend
   favourites_count: attr()
   followers_count:  attr()
   friends_count:    attr()
+  primary_email:    attr()
+  emails:           attr()
   url:              attr()
   createdOn:        attr()
   status:           attr()
   logon:            attr()
 
-  profiles:         hasMany('profile', embedded: false)
+  profiles:         hasMany( embedded: false )
 
   fullName: (->
     first   = @get('first') || ''

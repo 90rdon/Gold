@@ -40,6 +40,8 @@
     "fireplace": "~0.3.0",
     "glob": "^4.0.5",
     "http-proxy": "^1.8.1",
-    "morgan": "^1.5.1"
+    "morgan": "^1.5.1",
+    "opentok": "~2.2.5",
+    "firebase": "~2.2.0"
   }
 }

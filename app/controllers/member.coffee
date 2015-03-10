@@ -3,10 +3,9 @@
 memberController = Ember.ObjectController.extend
   needs: [
     'profile'
-    'authentication'
   ]
 
-  isMe: false
+  isMe:       false
 
   # uuid: (->
   #   @get('content').buildFirebaseReference().name()
@@ -34,11 +33,18 @@ memberController = Ember.ObjectController.extend
         when 'github'     then resolve(NormalizeAccount.Github(profileRef))
         when 'facebook'   then resolve(NormalizeAccount.Facebook(profileRef))
 
-  create: (identity) ->
+  cachedUserProfile: (authData) ->
+    switch authData.provider
+      when 'twitter'    then NormalizeAccount.TwitterCachedUser(authData)
+      when 'github'     then NormalizeAccount.GithubCachedUser(authData)
+      when 'facebook'   then NormalizeAccount.FacebookCachedUser(authData)
+
+  create: (authData) ->
     self = @
     new Ember.RSVP.Promise (resolve, reject) ->
 
-      self.get('controllers.profile').create(identity).then (profileRef) ->
+      userProfile = self.cachedUserProfile(authData)
+      self.get('controllers.profile').createOrUpdate(authData, userProfile).then (profileRef) ->
         self.normalize(profileRef).then (user) ->
           user.set('id', profileRef.toFirebaseJSON().uuid)
           self.store.createRecord('member', user).save().then (memberRef) ->

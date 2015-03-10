@@ -1,14 +1,13 @@
 `import {Model, attr, hasOne, hasMany} from 'fireplace'`
 
-session    = Model.extend
-  member:           hasOne( embedded: false )
-  presences:        hasMany( embedded: false )
+opentok    = Model.extend
+  opentok:          attr()
+  sessionId:        attr()
+  token:            attr()
+  caller_id:        attr()
+  recipient_id:     attr()
   on:               attr()
   off:              attr()
-
-  # priority: (->
-  #   @get('member').get('id')
-  # ).property('member.id')
 
   onTime: (->
     new Date((@get('on') * 1000) + ' UTC').toString()
@@ -18,4 +17,4 @@ session    = Model.extend
     new Date((@get('off') * 1000) + ' UTC').toString()
   ).property('off')
   
-`export default session`
+`export default opentok`

@@ -8,18 +8,17 @@ presence    = Model.extend
   data:             attr()
   on:               attr()
   off:              attr()
-  session:          hasOne()
 
   # priority: (->
   #   @get('uuid')
   # ).property('uuid')
 
-  # onTime: (->
-  #   new Date((@get('on') * 1000) + ' UTC').toString()
-  # ).property('on')
+  onTime: (->
+    new Date((@get('on') * 1000) + ' UTC').toString()
+  ).property('on')
 
-  # offTime: (->
-  #   new Date((@get('off') * 1000) + ' UTC').toString()
-  # ).property('off')
+  offTime: (->
+    new Date((@get('off') * 1000) + ' UTC').toString()
+  ).property('off')
   
 `export default presence`
