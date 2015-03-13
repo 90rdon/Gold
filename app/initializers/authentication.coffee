@@ -11,7 +11,7 @@ initialize = (container, app) ->
 
 AuthenticationInitializer =
   name: 'authentication'
-  after: 'fireplace'
+  after: 'presence'
   initialize: initialize
 
 `export {initialize}`

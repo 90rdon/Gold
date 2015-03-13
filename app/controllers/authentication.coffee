@@ -13,7 +13,7 @@ authenticationController = Ember.Controller.extend
   init: ->
     self = @
     @_super()
-    @firebaseRef = new Firebase(config.APP.firebaseUri)
+    @firebaseRef = new Firebase(config.firebase)
     @firebaseRef.onAuth (authData) ->
       if authData
         # --- authenticating to our app ---
@@ -34,24 +34,24 @@ authenticationController = Ember.Controller.extend
   # --- authenticating to our app ---
   authenticate: (authData) ->
     self = @
-    @get('controllers.profiles').findAll(authData.uid).then (profiles) ->
+    @get('controllers.profiles').findAllByUid(authData.uid).then (profiles) ->
 
       if profiles.get('length') is 0
         # New Member
-        self.get('controllers.member').create(authData).then (memberRef) ->
-          self.validate(memberRef)
+        self.get('controllers.member').create(authData).then (member) ->
+          self.validate(member)
       else
         # Existing Member
-        profile = profiles.get('lastObject').toFirebaseJSON()
-        self.get('controllers.member').findRefByUuid(profile.uuid).then (memberRef) ->
-          self.validate(memberRef)
+        profile = profiles.get('lastObject').toJSON()
+        self.get('controllers.member').findRefByUuid(profile.uuid).then (member) ->
+          self.validate(member)
         , (notFound) ->
-          self.get('controllers.member').create(authData).then (memberRef) ->
-          self.validate(memberRef)
+          self.get('controllers.member').create(authData).then (member) ->
+            self.validate(member)
 
-  validate: (memberRef) ->
+  validate: (member) ->
     @set('authenticated', true)
-    @get('controllers.session').start(memberRef)
+    @get('controllers.session').start(member)
 
   invalidate: ->
     @set('authenticated', false)   

@@ -1,4 +1,5 @@
 `import NormalizeAccount  from '../utils/auth/normalize-account'`
+`import config from '../config/environment'`
 
 memberController = Ember.ObjectController.extend
   needs: [
@@ -25,13 +26,13 @@ memberController = Ember.ObjectController.extend
       return true
   ).property('content.logon')
 
-  normalize: (profileRef) ->
+  normalize: (profile) ->
     new Ember.RSVP.Promise (resolve) ->
 
-      switch profileRef.toFirebaseJSON().provider
-        when 'twitter'    then resolve(NormalizeAccount.Twitter(profileRef))
-        when 'github'     then resolve(NormalizeAccount.Github(profileRef))
-        when 'facebook'   then resolve(NormalizeAccount.Facebook(profileRef))
+      switch profile.toJSON().provider
+        when 'twitter'    then resolve(NormalizeAccount.Twitter(profile))
+        when 'github'     then resolve(NormalizeAccount.Github(profile))
+        when 'facebook'   then resolve(NormalizeAccount.Facebook(profile))
 
   cachedUserProfile: (authData) ->
     switch authData.provider
@@ -44,25 +45,34 @@ memberController = Ember.ObjectController.extend
     new Ember.RSVP.Promise (resolve, reject) ->
 
       userProfile = self.cachedUserProfile(authData)
-      self.get('controllers.profile').createOrUpdate(authData, userProfile).then (profileRef) ->
-        self.normalize(profileRef).then (user) ->
-          user.set('id', profileRef.toFirebaseJSON().uuid)
-          self.store.createRecord('member', user).save().then (memberRef) ->
-            resolve(memberRef)
-          , (error) ->
-            reject(error)
+      self.get('controllers.profile').createOrUpdate(authData, userProfile).then (profile) ->
+        self.normalize(profile).then (user) ->
+          user.id = profile.toJSON().uuid
+          member = self.store.createRecord('member', user)
+          member.save().then (member) ->
+            member.get('profiles').addObject(profile)
+            member.save().then (member) ->
+              resolve(member)
+            , (error) ->
+              reject(error)
 
   findRefByUuid: (uuid) ->
     self = @
     new Ember.RSVP.Promise (resolve, reject) ->
 
-      self.store.fetch('member',  uuid).then (memberRef) ->
-        resolve(memberRef)
+      self.store.find 'member', 
+        orderBy:      'uuid'
+        startAt:      uuid
+        endAt:        uuid
+        limitToLast:  1
+      .then (member) ->
+        resolve(member)
       , (error) ->
         reject(error)
 
-  refresh: (memberRef, status) ->
-    memberRef.buildFirebaseReference()
+  refresh: (member, status) ->
+    memberRef = new Firebase(config.firebase + '/members/' + member.toJSON().id)
+    memberRef
     .child('status')
     .set(status)
 

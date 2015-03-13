@@ -5,12 +5,12 @@ presenceController = Ember.Controller.extend
     'application'
   ]
 
-  status:           null
-  presenceRef:      null
+  status:        null
+  presence:      null
 
   onConnect: ->
     self = @
-    @set('connectedRef', new Firebase(config.APP.firebaseUri + '/.info/connected'))
+    @set('connectedRef', new Firebase(config.firebase + '/.info/connected'))
     
     @get('connectedRef').on 'value', (ispresence) ->
       if ispresence.val()
@@ -24,17 +24,16 @@ presenceController = Ember.Controller.extend
     self = @
     new Ember.RSVP.Promise (resolve, reject) ->
 
-      self.set  'presenceRef', self.store.createRecord 'presence', 
+      presence = self.store.createRecord 'presence', 
         status: 'online'
         device: 'unknown'
         ip:     '127.0.0.1'
         meta:   null
-        data:   null
-        on:     Firebase.ServerValue.TIMESTAMP
         off:    null
 
-      self.get('presenceRef').save().then (presenceRef) ->
-        if presenceRef?
+      presence.save().then (presence) ->
+        if presence?
+          self.set('presence', presence)
           #on disconnect
           self.onDisconnect()
           resolve()
@@ -43,7 +42,8 @@ presenceController = Ember.Controller.extend
 
   onDisconnect: ->
     self = @
-    @get('presenceRef').buildFirebaseReference().onDisconnect()
+    presence = new Firebase(config.firebase + '/presences/' + @get('presence').id)
+    presence.onDisconnect()
       .update
         off: Firebase.ServerValue.TIMESTAMP
         status: 'offline'
@@ -51,11 +51,8 @@ presenceController = Ember.Controller.extend
         self.set('status', 'offline')
 
   setMyStatus: (status) ->
-    self = @
-    @get('presenceRef').buildFirebaseReference()
-      .update
-        status: status
-      , ->
-        self.set('status', status)
+    @set('status', status)
+    @get('presence').set('status', status)
+    @get('presence').save()
 
 `export default presenceController`

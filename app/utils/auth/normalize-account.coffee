@@ -1,11 +1,13 @@
+`import config from '../../config/environment'`
+
 normalizeAccount =
   # ----------------------------------------
   # Twitter
   # ----------------------------------------
   Twitter: (profileRef) ->
-    profile = profileRef.toFirebaseJSON().identity
-    user = Ember.Object.create
-      uid:              profileRef.toFirebaseJSON().uid
+    profile = profileRef.toJSON().identity
+    user = 
+      uid:              profileRef.toJSON().uid
       first:            ''
       last:             ''
       displayName:      profile.screen_name || ''
@@ -17,11 +19,11 @@ normalizeAccount =
       followers_count:  profile.followers_count || 0
       friends_count:    profile.friends_count || 0
       primary_email:    ''
-      emails:           []
       url:              profile.url || ''
-      profiles:         []
-      
-    user.get('profiles').addObject(profile)
+      emails:           []
+      status:           ''
+      logged_on:        true
+
     user
 
   TwitterCachedUser: (authData) ->
@@ -31,11 +33,11 @@ normalizeAccount =
   # Github
   # ----------------------------------------
   Github: (profileRef) ->
-    profile = profileRef.toFirebaseJSON().identity
+    profile = profileRef.toJSON().identity
     emailObj = profile.emails.find (item, index, self) ->
       item  if item.primary
-    user = Ember.Object.create
-      uid:              profileRef.toFirebaseJSON().uid
+    user =
+      uid:              profileRef.toJSON().uid
       first:            ''
       last:             ''
       displayName:      profile.name || ''
@@ -49,9 +51,9 @@ normalizeAccount =
       primary_email:    emailObj.email || ''
       emails:           profile.emails || []
       url:              profile.url || ''
-      profiles:         []
+      status:           ''
+      logged_on:        true
 
-    user.get('profiles').addObject(profileRef)
     user
 
   GithubCachedUser: (authData) ->
@@ -62,9 +64,9 @@ normalizeAccount =
   # facebook
   # ----------------------------------------
   Facebook: (profileRef) ->
-    profile = profileRef.toFirebaseJSON().identity
-    user = Ember.Object.create
-      uid:              profileRef.toFirebaseJSON().uid
+    profile = profileRef.toJSON().identity
+    user = 
+      uid:              profileRef.toJSON().uid
       first:            profile.first_name || ''
       last:             profile.last_name || ''
       displayName:      profile.displayName || ''
@@ -76,11 +78,11 @@ normalizeAccount =
       followers_count:  0
       friends_count:    0
       primary_email:    ''
-      emails:           []
       url:              profile.link || ''
-      profiles:         []
+      emails:           []
+      status:           ''
+      logged_on:        true
 
-    user.get('profiles').addObject(profile)
     user
 
   FacebookCachedUser: (authData) ->

@@ -1,15 +1,15 @@
-`import {Model, attr} from 'fireplace'`
+profile   = DS.Model.extend
+  identity:     DS.attr()
+  uid:          DS.attr()
+  uuid:         DS.attr()
+  provider:     DS.attr()
+  createdOn:    DS.attr('timestamp', defaultValue: -> Firebase.ServerValue.TIMESTAMP)
+  
+  member:       DS.belongsTo('member', async: true )
 
-profile   = Model.extend
-  identity:     attr()
-  uid:          attr()
-  uuid:         attr()
-  provider:     attr()
-  createdOn:    attr('date', default: -> Firebase.ServerValue.TIMESTAMP)
-
-  priority: (->
-    @get('uid')
-  ).property('uid')
+  # priority: (->
+  #   @get('uid')
+  # ).property('uid')
 
   # id: (->
   #   @get('id')

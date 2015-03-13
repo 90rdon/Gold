@@ -12,6 +12,10 @@
 		{
 			"follow_symlinks": true,
 			"path": "cordova"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/Users/superstitio/Documents/workspace/sandbox/ember.js/second"
 		}
 	]
 }

@@ -9,17 +9,17 @@ profileController = Ember.ObjectController.extend
     self = @
     new Ember.RSVP.Promise (resolve, reject) ->
 
-      self.get('controllers.profiles').findAll(authData.uid).then (profiles) ->
+      self.get('controllers.profiles').findAllByUid(authData.uid).then (profiles) ->
         if profiles.get('length') is 0
 
-          profileRef = self.store.createRecord 'profile',
+          profile = self.store.createRecord 'profile',
             identity:     cachedUserProfile
             uid:          authData.uid
             uuid:         UUID.createUuid()
             provider:     authData.provider
 
-          .save().then (profileRef) ->
-            resolve(profileRef)
+          .save().then (profile) ->
+            resolve(profile)
           , (error) ->
             reject(error)
         else

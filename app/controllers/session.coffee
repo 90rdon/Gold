@@ -1,3 +1,5 @@
+`import config from '../config/environment'`
+
 sessionController = Ember.ObjectController.extend
   needs: [
     'application'
@@ -6,70 +8,72 @@ sessionController = Ember.ObjectController.extend
     'members'
   ]
 
-  sessionRef:     null
-  presenceRef:    null
-  memberRef:      null
-  status:         null
+  session:        null
+  presence:       null
+  member:         null
 
-  start: (memberRef) ->
+  # status: (->
+  #   @setMyStatus(@get('controllers.presence').get('status'))
+  # ).observes('controllers.presence.status')
+
+  start: (member) ->
     self = @
-    @set('memberRef', memberRef)
-    # --- automatically set the presenceRef ---
-    @set('presenceRef', @get('controllers.presence').get('presenceRef'))
+    # @setMyStatus(@get('status'))
+    @set('member', member)
+
+    # --- automatically set the presence ---
+    @set('presence', @get('controllers.presence').get('presence'))
     new Ember.RSVP.Promise (resolve, reject) ->
 
-      json = Ember.Object.create
-        member:     null
-        on:         Firebase.ServerValue.TIMESTAMP
-        presences:  []
-
-      json.set('member', memberRef)
-      json.get('presences').addObject(self.get('presenceRef'))
-      session = self.store.createRecord 'session', json
-      session.save().then (sessionRef) ->
-        if sessionRef?
-          resolve(self.onDisconnect(sessionRef))
+      session = self.store.createRecord 'session', 
+        member: member
+      session.get('presences').addObject(self.get('presence'))
+      session.save().then (session) ->
+        if session?
+          self.set('session', session)
+          resolve(self.onDisconnect(session))
         else
           reject()
 
-  onDisconnect: (sessionRef) ->
+  onDisconnect: (session) ->
     self = @
-    sessionRef.buildFirebaseReference().onDisconnect()
+    session = new Firebase(config.firebase + '/sessions/' + session.id)
+    session.onDisconnect()
       .update
         off: Firebase.ServerValue.TIMESTAMP
       , ->
-        self.set('sessionRef', null)
+        self.set('session', null)
 
   finish: ->
-    @setMyStatus('offline')
+    # @setMyStatus('offline')
 
-    @get('memberRef').buildFirebaseReference()
-    .child('logon')
-    .set(false)  if @get('memberRef')?
-
-    @get('memberRef').buildFirebaseReference()
-    .child('status')
-    .set('offline')  if @get('memberRef')?
-
-    @set('presenceRef', null)
-    @set('sessionRef', null)
-    @set('memberRef', null)
+    @set('presence', null)
+    @set('session', null)
+    @set('member', null)
 
   setMyStatus: (status) ->
+    return  unless status
     @set('status', status)
-    @get('memberRef').buildFirebaseReference().child('status').set(status)  if @get('memberRef')?
+    if @get('member')?
+      if @get('member').get('status') is 'offline'
+        @get('member').set('logged_on', false)
+      else
+        @get('member').set('logged_on', true)
+      @get('member').set('status', status)
+      @get('member').save()
+    return
 
-  last: (uuid) ->
-    self = @
-    new Ember.RSVP.Promise (resolve, reject) ->
+  # last: (uuid) ->
+  #   self = @
+  #   new Ember.RSVP.Promise (resolve, reject) ->
       
-      self.store.fetch 'session', 
-        endAt: uuid
-        limit: 1
+  #     self.store.find 'session', 
+  #       endAt: uuid
+  #       limit: 1
 
-      .then (profiles) ->
-        resolve(profiles)
-      , (error) ->
-        reject(error)
+  #     .then (session) ->
+  #       resolve(session)
+  #     , (error) ->
+  #       reject(error)
 
 `export default sessionController`

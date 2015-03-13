@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'gold',
     environment: environment,
+    firebase: 'https://linguis.firebaseio.com/',
     baseURL: '/',
     locationType: 'hash',
     EmberENV: {
@@ -15,7 +16,7 @@ module.exports = function(environment) {
     },
 
     APP: {
-      firebaseUri: 'https://linguis.firebaseio.com',
+      // firebaseUri: 'https://linguis.firebaseio.com',
       linguisEndpoint: ''
     },
 

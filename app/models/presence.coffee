@@ -1,24 +1,24 @@
-`import {Model, attr, hasOne} from 'fireplace'`
+presence    = DS.Model.extend
+  status:           DS.attr()
+  device:           DS.attr()
+  ip:               DS.attr()
+  meta:             DS.attr()
+  # data:             DS.attr('string')
+  on:               DS.attr('timestamp', defaultValue: -> Firebase.ServerValue.TIMESTAMP)
+  off:              DS.attr('timestamp')
 
-presence    = Model.extend
-  status:           attr()
-  device:           attr()
-  ip:               attr()
-  meta:             attr()
-  data:             attr()
-  on:               attr()
-  off:              attr()
+  session:          DS.belongsTo('session')
 
   # priority: (->
   #   @get('uuid')
   # ).property('uuid')
 
-  onTime: (->
-    new Date((@get('on') * 1000) + ' UTC').toString()
-  ).property('on')
+  # onTime: (->
+  #   new Date((@get('on') * 1000) + ' UTC').toString()
+  # ).property('on')
 
-  offTime: (->
-    new Date((@get('off') * 1000) + ' UTC').toString()
-  ).property('off')
+  # offTime: (->
+  #   new Date((@get('off') * 1000) + ' UTC').toString()
+  # ).property('off')
   
 `export default presence`

@@ -1,31 +1,30 @@
-`import {Model, attr, hasMany} from 'fireplace'`
+member      = DS.Model.extend
+  uid:              DS.attr()
+  first:            DS.attr()
+  last:             DS.attr()
+  displayName:      DS.attr()
+  name:             DS.attr()
+  tagline:          DS.attr()
+  bio:              DS.attr()
+  image:            DS.attr()
+  favourites_count: DS.attr()
+  followers_count:  DS.attr()
+  friends_count:    DS.attr()
+  primary_email:    DS.attr()
+  emails:           DS.attr()
+  url:              DS.attr()
+  joined_on:        DS.attr('timestamp', defaultValue: -> Firebase.ServerValue.TIMESTAMP)
+  status:           DS.attr()
+  logged_on:        DS.attr()
 
-member    = Model.extend
-  uid:              attr()
-  first:            attr()
-  last:             attr()
-  displayName:      attr()
-  name:             attr()
-  tagline:          attr()
-  bio:              attr()
-  image:            attr()
-  favourites_count: attr()
-  followers_count:  attr()
-  friends_count:    attr()
-  primary_email:    attr()
-  emails:           attr()
-  url:              attr()
-  createdOn:        attr()
-  status:           attr()
-  logon:            attr()
+  profiles:         DS.hasMany('profile', async: true )
+  # session:          DS.belongsTo('session', inverse: null)
 
-  profiles:         hasMany( embedded: false )
+  # fullName: (->
+  #   first   = @get('first') || ''
+  #   last    = @get('last') || ''
 
-  fullName: (->
-    first   = @get('first') || ''
-    last    = @get('last') || ''
-
-    return first + ' ' + last
-  ).property('first', 'last')
+  #   return first + ' ' + last
+  # ).property('first', 'last')
   
 `export default member`
