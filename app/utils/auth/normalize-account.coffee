@@ -1,13 +1,30 @@
 `import config from '../../config/environment'`
 
 normalizeAccount =
+  normalize: (profile) ->
+    self = @
+    new Ember.RSVP.Promise (resolve) ->
+
+      switch profile.toJSON().provider
+        when 'twitter'    then resolve(self.Twitter(profile))
+        when 'github'     then resolve(self.Github(profile))
+        when 'facebook'   then resolve(self.Facebook(profile))
+
+  cachedUserProfile: (authData) ->
+    self = @
+    new Ember.RSVP.Promise (resolve) ->
+      switch authData.provider
+        when 'twitter'    then resolve(self.TwitterCachedUser(authData))
+        when 'github'     then resolve(self.GithubCachedUser(authData))
+        when 'facebook'   then resolve(self.FacebookCachedUser(authData))
+
   # ----------------------------------------
   # Twitter
   # ----------------------------------------
   Twitter: (profileRef) ->
     profile = profileRef.toJSON().identity
     user = 
-      uid:              profileRef.toJSON().uid
+      # uid:              profileRef.toJSON().uid
       first:            ''
       last:             ''
       displayName:      profile.screen_name || ''
@@ -37,7 +54,7 @@ normalizeAccount =
     emailObj = profile.emails.find (item, index, self) ->
       item  if item.primary
     user =
-      uid:              profileRef.toJSON().uid
+      # uid:              profileRef.toJSON().uid
       first:            ''
       last:             ''
       displayName:      profile.name || ''
@@ -66,7 +83,7 @@ normalizeAccount =
   Facebook: (profileRef) ->
     profile = profileRef.toJSON().identity
     user = 
-      uid:              profileRef.toJSON().uid
+      # uid:              profileRef.toJSON().uid
       first:            profile.first_name || ''
       last:             profile.last_name || ''
       displayName:      profile.displayName || ''

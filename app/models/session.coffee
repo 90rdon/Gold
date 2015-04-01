@@ -1,6 +1,7 @@
 session    = DS.Model.extend
   on:               DS.attr('timestamp', defaultValue: -> Firebase.ServerValue.TIMESTAMP)
   off:              DS.attr('timestamp')
+  status:           DS.attr()
   
   member:           DS.belongsTo('member', async: true )
   presences:        DS.hasMany('presence', async: true )

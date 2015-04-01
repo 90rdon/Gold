@@ -7,7 +7,7 @@ presence    = DS.Model.extend
   on:               DS.attr('timestamp', defaultValue: -> Firebase.ServerValue.TIMESTAMP)
   off:              DS.attr('timestamp')
 
-  session:          DS.belongsTo('session')
+  session:          DS.belongsTo('session', async: true )
 
   # priority: (->
   #   @get('uuid')

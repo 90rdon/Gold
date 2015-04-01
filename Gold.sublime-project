@@ -2,20 +2,16 @@
 	"folders":
 	[
 		{
-			"follow_symlinks": true,
 			"path": "app"
 		},
 		{
-			"follow_symlinks": true,
 			"path": "."
 		},
 		{
-			"follow_symlinks": true,
 			"path": "cordova"
 		},
 		{
-			"follow_symlinks": true,
-			"path": "/Users/superstitio/Documents/workspace/sandbox/ember.js/second"
+			"path": "tests"
 		}
 	]
 }

@@ -21,8 +21,8 @@ profilesController = Ember.ArrayController.extend
         equalTo:        uid
         limitToLast:    1
 
-      .then (profile) ->
-        resolve(profile)
+      .then (profiles) ->
+        resolve(profiles.get('firstObject'))
       , (error) ->
         reject(error)
 

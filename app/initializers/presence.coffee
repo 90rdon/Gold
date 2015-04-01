@@ -5,9 +5,9 @@ initialize = (container, app) ->
       instantiate: false
       singleton: true
 
-  container.typeInjection 'route',      'presence', 'presence:main'
-  container.typeInjection 'controller', 'presence', 'presence:main'
-  container.typeInjection 'component',  'presence', 'presence:main'
+  # container.typeInjection 'route',      'presence', 'presence:main'
+  container.typeInjection 'controller:authentication', 'presence', 'presence:main'
+  # container.typeInjection 'component',  'presence', 'presence:main'
 
 presenceInitializer =
   name: 'presence'

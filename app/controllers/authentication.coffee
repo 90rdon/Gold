@@ -3,28 +3,33 @@
 # Firebase Simple Login Hook
 authenticationController = Ember.Controller.extend
   needs: [
-    'profiles'
+    'profile'
     'member'
     'session'
   ]
-
-  authenticated:  false
-
+  
+  session:        null
+  
+  authenticated:  (->
+    true  if @get('session')?
+    false
+  ).property('session')
+  
   init: ->
     self = @
-    @_super()
+    # @_super()
     @firebaseRef = new Firebase(config.firebase)
     @firebaseRef.onAuth (authData) ->
       if authData
         # --- authenticating to our app ---
-        self.authenticate(authData)
+        self.validate(authData)
       else
         self.invalidate()
 
   login: (provider) ->
-    return @firebaseRef.authWithOAuthPopup('github', @authenticate)  if (provider is 'github')
-    return @firebaseRef.authWithOAuthPopup('facebook', @authenticate)  if (provider is 'facebook')
-    return @firebaseRef.authWithOAuthPopup('twitter', @authenticate)  if (provider is 'twitter')
+    return @firebaseRef.authWithOAuthPopup('github', @validate)  if (provider is 'github')
+    return @firebaseRef.authWithOAuthPopup('facebook', @validate)  if (provider is 'facebook')
+    return @firebaseRef.authWithOAuthPopup('twitter', @validate)  if (provider is 'twitter')
     null
 
   logout: ->
@@ -34,27 +39,24 @@ authenticationController = Ember.Controller.extend
   # --- authenticating to our app ---
   authenticate: (authData) ->
     self = @
-    @get('controllers.profiles').findAllByUid(authData.uid).then (profiles) ->
+    new Ember.RSVP.Promise (resolve, reject) ->
 
-      if profiles.get('length') is 0
-        # New Member
-        self.get('controllers.member').create(authData).then (member) ->
-          self.validate(member)
-      else
-        # Existing Member
-        profile = profiles.get('lastObject').toJSON()
-        self.get('controllers.member').findRefByUuid(profile.uuid).then (member) ->
-          self.validate(member)
-        , (notFound) ->
-          self.get('controllers.member').create(authData).then (member) ->
-            self.validate(member)
+      self.get('controllers.profile').findOrCreate(authData).then (profile) ->
+        self.get('controllers.member').findOrCreate(profile).then (member) ->
+          resolve(member)
+        , (error) ->
+          reject(error)
 
-  validate: (member) ->
-    @set('authenticated', true)
-    @get('controllers.session').start(member)
+  validate: (authData) ->
+    self = @
+    @authenticate(authData).then (member) ->
+      self.get('controllers.session').start(member).then (session) ->
+        self.set('session', session)
+      , (error) ->
+        return
 
   invalidate: ->
-    @set('authenticated', false)   
+    @set('session', null)   
     @get('controllers.session').finish()
 
 

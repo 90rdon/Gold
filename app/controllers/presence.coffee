@@ -8,19 +8,17 @@ presenceController = Ember.Controller.extend
   status:        null
   presence:      null
 
-  onConnect: ->
+  init: ->
     self = @
     @set('connectedRef', new Firebase(config.firebase + '/.info/connected'))
     
     @get('connectedRef').on 'value', (ispresence) ->
       if ispresence.val()
-        self.create().then ->
-          self.set('status', 'online')
-        return
+        self.setMyStatus('online')
       else
-        self.set('status', 'offline')
+        self.setMyStatus('offline')
 
-  create: ->
+  onConnect: ->
     self = @
     new Ember.RSVP.Promise (resolve, reject) ->
 
@@ -52,7 +50,8 @@ presenceController = Ember.Controller.extend
 
   setMyStatus: (status) ->
     @set('status', status)
-    @get('presence').set('status', status)
-    @get('presence').save()
+    if @get('presence')?
+      @get('presence').set('status', status)  
+      @get('presence').save()
 
 `export default presenceController`

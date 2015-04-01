@@ -1,5 +1,5 @@
 member      = DS.Model.extend
-  uid:              DS.attr()
+  # uid:              DS.attr()
   first:            DS.attr()
   last:             DS.attr()
   displayName:      DS.attr()
@@ -18,7 +18,7 @@ member      = DS.Model.extend
   logged_on:        DS.attr()
 
   profiles:         DS.hasMany('profile', async: true )
-  # session:          DS.belongsTo('session', inverse: null)
+  sessions:         DS.hasMany('session', async: true )
 
   # fullName: (->
   #   first   = @get('first') || ''

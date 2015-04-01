@@ -1,20 +1,18 @@
-`import NormalizeAccount  from '../utils/auth/normalize-account'`
+`import UUID   from '../utils/auth/uuid'`
+`import Parse  from '../utils/auth/normalize-account'`
 `import config from '../config/environment'`
 
 memberController = Ember.ObjectController.extend
   needs: [
+    'presence'
     'profile'
+    'members'
+    'session'
   ]
 
-  isMe:       false
-
-  # uuid: (->
-  #   @get('content').buildFirebaseReference().name()
-  # ).property(@)
-
-  uuid: (->
-    null
-  ).property()
+  isMe:   false
+  status: null
+  uuid:   null
 
   block: (->
     if @get('content.logon')
@@ -26,54 +24,69 @@ memberController = Ember.ObjectController.extend
       return true
   ).property('content.logon')
 
-  normalize: (profile) ->
-    new Ember.RSVP.Promise (resolve) ->
+  findOrCreate: (profile) ->
+    self = @
+    new Ember.RSVP.Promise (resolve, reject) ->
+      
+      if profile.get('member').get('content')?
+        self.get('controllers.members').findByProfile(profile).then (member) ->
+          resolve(member)
+        , (notFound) ->
+          self.create(profile).then (member) ->
+            resolve(member)
+          , (error) ->
+            reject(error)
+      else
+        if self.get('controllers.session').get('member')?
+          resolve(self.get('controllers.session').get('member'))
+        else
+          self.create(profile).then (member) ->
+            resolve(member)
+          , (error) ->
+            reject(error)
 
-      switch profile.toJSON().provider
-        when 'twitter'    then resolve(NormalizeAccount.Twitter(profile))
-        when 'github'     then resolve(NormalizeAccount.Github(profile))
-        when 'facebook'   then resolve(NormalizeAccount.Facebook(profile))
+  isNewProfile: (member, profile) ->
+    # self = @
+    # new Ember.RSVP.Promise (resolve, reject) ->
 
-  cachedUserProfile: (authData) ->
-    switch authData.provider
-      when 'twitter'    then NormalizeAccount.TwitterCachedUser(authData)
-      when 'github'     then NormalizeAccount.GithubCachedUser(authData)
-      when 'facebook'   then NormalizeAccount.FacebookCachedUser(authData)
+    #   self.store.find('member', member.id).then (members) ->
+    #     resolve(false)  if members.get('length') is 0
+    !member.get('profiles').isAny('id', profile.id)
 
-  create: (authData) ->
+  addProfile: (member, profile) ->
     self = @
     new Ember.RSVP.Promise (resolve, reject) ->
 
-      userProfile = self.cachedUserProfile(authData)
-      self.get('controllers.profile').createOrUpdate(authData, userProfile).then (profile) ->
-        self.normalize(profile).then (user) ->
-          user.id = profile.toJSON().uuid
-          member = self.store.createRecord('member', user)
-          member.save().then (member) ->
-            member.get('profiles').addObject(profile)
-            member.save().then (member) ->
-              resolve(member)
-            , (error) ->
-              reject(error)
+      # self.get('controllers.profile').updateUUID(profile, member.id)
+      if self.isNewProfile(member, profile)
+        member.get('profiles').addObject(profile)
+        member.save().then (member) ->
+          profile.save().then (profile) ->
+            resolve(member)
+        , (error) ->
+          reject(error)
 
-  findRefByUuid: (uuid) ->
+  create: (profile) ->
     self = @
     new Ember.RSVP.Promise (resolve, reject) ->
 
-      self.store.find 'member', 
-        orderBy:      'uuid'
-        startAt:      uuid
-        endAt:        uuid
-        limitToLast:  1
-      .then (member) ->
-        resolve(member)
-      , (error) ->
-        reject(error)
+      Parse.normalize(profile).then (memberJSON) ->
+        # memberJSON.id = profile.toJSON().uuid
+        uuid = UUID.createUuid()
+        memberJSON.id = uuid
+        member = self.store.createRecord('member', memberJSON)
+        member.save().then (member) ->
+          self.addProfile(member, profile).then (member) ->
+            resolve(member)
+          , (error) ->
+            reject(error)
 
   refresh: (member, status) ->
-    memberRef = new Firebase(config.firebase + '/members/' + member.toJSON().id)
-    memberRef
-    .child('status')
-    .set(status)
+    self = @
+    return  unless status?
+    @set('status', status)
+    if member?
+      member.set('status', status)
+      member.save()
 
 `export default memberController`

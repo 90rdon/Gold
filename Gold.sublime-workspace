@@ -4,12 +4,64 @@
 		"selected_items":
 		[
 			[
-				"disconn",
-				"disconnected"
+				"mem",
+				"member"
+			],
+			[
+				"member",
+				"memberJSON"
+			],
+			[
+				"profile",
+				"profileRefLink"
+			],
+			[
+				"prof",
+				"profileRefLink"
+			],
+			[
+				"presen",
+				"presenceRef"
+			],
+			[
+				"container",
+				"containerLookupHelper"
+			],
+			[
+				"pro",
+				"profile"
+			],
+			[
+				"presence",
+				"presenceRef"
+			],
+			[
+				"auth",
+				"authData"
+			],
+			[
+				"cache",
+				"cachedUserProfile"
+			],
+			[
+				"profil",
+				"profileRef"
 			],
 			[
 				"prese",
 				"presenceRef"
+			],
+			[
+				"authen",
+				"authenticated"
+			],
+			[
+				"ses",
+				"sessionId"
+			],
+			[
+				"disconn",
+				"disconnected"
 			],
 			[
 				"create",
@@ -44,20 +96,8 @@
 				"getTime"
 			],
 			[
-				"member",
-				"memberSession"
-			],
-			[
-				"mem",
-				"memberRef"
-			],
-			[
 				"memb",
 				"memberUuid"
-			],
-			[
-				"auth",
-				"authentication"
 			],
 			[
 				"logoff",
@@ -104,18 +144,6 @@
 				"unless"
 			],
 			[
-				"prof",
-				"profileRef"
-			],
-			[
-				"profil",
-				"profile"
-			],
-			[
-				"pro",
-				"property"
-			],
-			[
 				"sesio",
 				"sessionRef"
 			],
@@ -130,10 +158,6 @@
 			[
 				"fire",
 				"fireplace"
-			],
-			[
-				"profile",
-				"profileRef"
 			],
 			[
 				"to",
@@ -162,10 +186,6 @@
 			[
 				"norm",
 				"normalizeUser"
-			],
-			[
-				"authen",
-				"authenticate"
 			],
 			[
 				"in",
@@ -368,10 +388,6 @@
 				"redisPub"
 			],
 			[
-				"ses",
-				"socketStore"
-			],
-			[
 				"red",
 				"redisPub"
 			],
@@ -498,112 +514,85 @@
 			[
 				"USER",
 				"USER_ID"
-			],
-			[
-				"aut",
-				"authorization"
-			],
-			[
-				"author",
-				"authorization"
-			],
-			[
-				"autho",
-				"authorization"
-			],
-			[
-				"au",
-				"authorization"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "package.json",
+			"file": "app/controllers/session.coffee",
 			"settings":
 			{
-				"buffer_size": 1232,
+				"buffer_size": 2607,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bower.json",
+			"file": "app/controllers/sessions.coffee",
 			"settings":
 			{
-				"buffer_size": 536,
+				"buffer_size": 735,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Brocfile.js",
+			"file": "app/controllers/members.coffee",
 			"settings":
 			{
-				"buffer_size": 791,
+				"buffer_size": 736,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "config/environment.js",
+			"file": "app/controllers/member.coffee",
 			"settings":
 			{
-				"buffer_size": 1843,
+				"buffer_size": 2540,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "cordova/config.xml",
+			"file": "app/controllers/profile.coffee",
 			"settings":
 			{
-				"buffer_size": 546,
+				"buffer_size": 1401,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/bower.json",
+			"file": "app/controllers/profiles.coffee",
 			"settings":
 			{
-				"buffer_size": 536,
+				"buffer_size": 686,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/package.json",
+			"file": "app/controllers/authentication.coffee",
 			"settings":
 			{
-				"buffer_size": 1232,
+				"buffer_size": 1644,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/config/environment.js",
+			"file": "app/utils/auth/normalize-account.coffee",
 			"settings":
 			{
-				"buffer_size": 1739,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/Brocfile.js",
-			"settings":
-			{
-				"buffer_size": 758,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/app/index.html",
-			"settings":
-			{
-				"buffer_size": 616,
+				"buffer_size": 3443,
 				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "Packages/JSHint/JSHint.sublime-build",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 47.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -681,22 +670,103 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/components",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/helpers",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/initializers",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/routes",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/views",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/bower_components",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/config",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/cordova",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/cordova/www",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules"
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers"
 	],
 	"file_history":
 	[
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/member.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/member.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/npm/doc/api/npm-outdated.md",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/utils/auth/normalize-account.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/profiles.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/members.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/profile.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/initializers/presence.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/presence.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/views/presence-container.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/initializers/authentication.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/glob/test/pause-resume.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/package.json",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/session.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/presence.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/lib/utilities/ember-cli-version.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/application.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/authentication.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/session.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/profile.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/emberfire/dist/emberfire.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/bower.json",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/adapters/firebase.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/Brocfile.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/initializers/session.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/semver/test/no-module.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/npm/test/tap/optional-metadep-rollback-collision.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/tranforms/timestamp.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/templates/index.hbs",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/index.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/emberfire/firebase.json",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/opentok.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/config/environment.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/app/initializers/authentication.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/app/initializers/fireplace.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/backup/fireplace-initializer.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/server/routes/token.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/second/package.json",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/lib/tasks/npm-install.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/cordova/config.xml",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/core-object/core-object.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/test-helper.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/.gitignore",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/.bowerrc",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/integration/index-test.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/dist/assets/test-support.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/dist/assets/test-support.css",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/bower_components/ember-cli-shims/test-shims.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/testem.json",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/bower/test/assets/test-temp-dir/test-exception.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/helpers/custom.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/helpers/container-lookup.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/unit/controllers/presence-test.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/dist/assets/gold.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/testem/node_modules/http-proxy/test/fixtures/agent2-key.pem",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tmp/coffee_script_filter-tmp_cache_dir-5mPT2CwB.tmp/1",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tmp/coffee_script_filter-tmp_cache_dir-O4Z0QXL4.tmp/13",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tmp/jshinter-tmp_dest_dir-l6Xrzsy4.tmp/controllers/member.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/cordova/plugins/com.tokbox.cordova.opentok/docs/exceptionEvent.md",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/opentok/sample/Archiving/views/index.ejs",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli-content-security-policy/index.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli-coffeescript/index.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/broccoli-asset-rev/index.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/dist/tests/index.html",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/bower_components/qunit-notifications/index.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/bower_components/ember-qunit-notifications/index.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/cordova/www/index.html",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/index.html",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/server/index.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/dist/index.html",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/index.html",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli-esnext/node_modules/broccoli-esnext/node_modules/esnext/node_modules/regenerator/node_modules/recast/node_modules/source-map/lib/source-map/indexed-source-map-consumer.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/lib/commands/install-npm.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/cordova/platforms/ios/cordova/lib/install-emulator",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/unit/initializers/authentication-test.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/bower_components/jquery/src/serialize.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/lib/commands/serve.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/lodash-node/compat/internals/baseRandom.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/server/proxies/api.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/templates/application.hbs",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/server/routes/ember-hamster.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/server2/index.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/call.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/initializers/fireplace.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/app.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/stores/main.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/stores/main.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/app/index.html",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/Brocfile.js",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/bower.json",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/package.json",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/config/environment.js",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/cordova/config.xml",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/dist/index.html",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/htmlbars-test/config/environment.js",
@@ -704,25 +774,10 @@
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/htmlbars-test/bower.json",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/htmlbars-test/package.json",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/cordova/platforms/ios/cordova/build-release.xcconfig",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/package.json",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/bower.json",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/Brocfile.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/config/environment.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/initializers/session.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/initializers/authentication.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/authentication.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/lodash-node/compat/internals/baseIndexOf.js",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/npm/node_modules/npm-registry-client/test/publish-again.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/presence.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/presence.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/member.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/profile.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/session.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/templates/index.emblem",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/index.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/application.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/routes/index.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/views/presence-container.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/templates/application.emblem",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/vendor/idle.js",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/routes/loading.coffee",
@@ -747,84 +802,7 @@
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/session.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/connect-livereload/package.json",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/bower/node_modules/mout/lang/isNull.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/grunt-contrib-clean/docs/clean-options.md",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/routes/call.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/views/effeckt-off-screen-nav.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/views/sessions-container.coffee",
-		"/etc/hosts",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/templates/components/member-item.emblem",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/members.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/initializers/session.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/platforms/ios/cordova/lib/start-emulator",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tasks/options/shell.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/models/connection.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/routes/index.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/utils/auth/normalize-account.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/models/profile.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/models/member.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/initializers/authentication.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/membership.coffee",
-		"/Users/superstitio/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/Users/superstitio/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/superstitio/Library/Application Support/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
-		"/Users/superstitio/Library/Application Support/Sublime Text 3/Packages/User/JSON.sublime-settings",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/models/members.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/models/sessions.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova2/www/vendor/FakeXMLHttpRequest/test/event_listeners_test.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/www/vendor/FakeXMLHttpRequest/test/event_listeners_test.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/vendor/modernizr/feature-detects/battery-level.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/vendor/FakeXMLHttpRequest/test/event_listeners_test.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/grunt-contrib-testem/node_modules/sugar/release/sugar-full.development.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/grunt-debug-task/node_modules/node-inspector/front-end/EventListenersSidebarPane.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova2/platforms/ios/build/emulator/Lingu.is.app/www/config/environments/development.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova2/platforms/ios/www/config/environments/development.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/platforms/ios/www/config/environments/development.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova2/www/config/environments/development.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/www/config/environments/development.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/opentok/DEVELOPING.md",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/vendor/qunit/test/deepEqual.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/_me.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tasks/express-server.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/router.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/api-stub/data/members-embedded.json",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/vendor/fireplace/packages/fireplace/lib/model/meta_model.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/platforms/ios/Linguis/config.xml",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tmp/result/assets/config.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/bower/lib/config.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova2/www/assets/config.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova2/merges/ios/config.xml",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/www/assets/config.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/merges/ios/config.xml",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova2/config.xml",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/config.xml",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/auth.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/routes/member.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/templates/member.emblem",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/www/index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/config/environments/production.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/views/opentok-container.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/templates/call.emblem",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/me.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/effeckt-scroll-list.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tasks/helpers.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tasks/options/debug.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/grunt-debug-task/node_modules/node-inspector/lib/PageAgent.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/plugins/org.apache.cordova.inappbrowser/src/amazon/InAppChromeClient.java",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/grunt-contrib-less/node_modules/less/test/less/errors/parse-error-curly-bracket.less",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/request/node_modules/tough-cookie/public-suffix.txt",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/grunt-debug-task/node_modules/node-inspector/front-end/PropertiesSection.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tasks/options/debugTask.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tasks/options/emberscript.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/styles/linguis.styl",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/merges/ios/index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/phoneGapApp.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/platforms/ios/www/index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/merges/ios/__index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/platforms/ios/www/__index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tasks/options/clean.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/tasks/options/copy.js",
-		"/Users/superstitio/Documents/workspace/sandbox/cordova/cordova-sample/cordova/www/index.html",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/cordova/merges/ios/debug/index.html"
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/grunt-contrib-clean/docs/clean-options.md"
 	],
 	"find":
 	{
@@ -835,6 +813,9 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app",
+			"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers",
+			"/Users/superstitio/Documents/workspace/sandbox/ember.js/gold/app",
 			"/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/",
 			"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app",
 			"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is",
@@ -935,6 +916,38 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"session",
+			"authenticate",
+			"uid",
+			"refresh",
+			"findByUuid",
+			"authenticate",
+			"findRefByUuid",
+			"onConnect",
+			"refresh",
+			"update",
+			"findquery",
+			"setMyStatus",
+			"logon",
+			"sessionRef",
+			"presenceREf",
+			"memberRef",
+			"profileRef",
+			"presenceRef",
+			"profileRef.toFirebaseJSON",
+			"profileRef.toFirebaseJSON ",
+			"DS.attr('string')",
+			"toFirebaseJSON()",
+			"listenForChanges",
+			"fireplace",
+			"firebaseUri",
+			"embedded: false",
+			"attr(",
+			"attr()",
+			"ember-inflector",
+			"App",
+			"underscore",
+			"thirdPartyUserData",
 			"white-gold",
 			"parking",
 			"handlebars",
@@ -1030,39 +1043,7 @@
 			"store",
 			"\"",
 			"snapshot",
-			"authentication",
-			"createMember",
-			"  createMember: (identity) ->\n  createMember: (identity) ->\ncreateMember",
-			"serialize",
-			"sessionsRef",
-			"createProfile",
-			"sessions",
-			"meRef",
-			"\"",
-			"setUserStatus",
-			"session",
-			"connected",
-			"connection",
-			"store:main",
-			"status",
-			"session",
-			"connected",
-			"new Ember.RSVP.Promise",
-			"new Promise",
-			"Promise",
-			"toggleNav",
-			"findRefByUuid",
-			"authorize",
-			"\"",
-			"expressServer",
-			"\"",
-			"/assets",
-			"/vendor",
-			"/config",
-			"/assets",
-			"/vendor",
-			"/ios/www",
-			"createDistVersion"
+			"authentication"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1070,6 +1051,16 @@
 		"regex": false,
 		"replace_history":
 		[
+			"session",
+			"presence",
+			"member",
+			"profile",
+			"presence",
+			"DS.attr()",
+			"toJSON()",
+			"async: true",
+			"DS.attr(",
+			"attr('string')",
 			"presence",
 			"updateConnectionStatus",
 			"session",
@@ -1187,17 +1178,7 @@
 			"images",
 			"img",
 			"'",
-			"index",
-			"'",
-			"images",
-			"id",
-			"profiles",
-			"member",
-			"\"likes\"",
-			"\"rate\"",
-			"\"to\"",
-			"\"from\"",
-			"\"img\""
+			"index"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1208,29 +1189,87 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "package.json",
+					"file": "app/controllers/session.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1232,
+						"buffer_size": 2607,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								1232
+								1100,
+								1100
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 225.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/controllers/sessions.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 735,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								322,
+								322
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/controllers/members.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 736,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								382,
+								382
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -1242,179 +1281,55 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "bower.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 536,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								78,
-								78
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Brocfile.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 791,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								263,
-								263
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
 					"buffer": 3,
-					"file": "config/environment.js",
+					"file": "app/controllers/member.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1843,
+						"buffer_size": 2540,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								362,
-								362
+								427,
+								427
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1.0,
+						"translation.y": 23.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "cordova/config.xml",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 546,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								546
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
-				{
-					"buffer": 5,
-					"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/bower.json",
+					"file": "app/controllers/profile.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 536,
+						"buffer_size": 1401,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								536,
-								536
+								617,
+								624
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1232,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1232,
-								1232
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -1426,25 +1341,61 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/config/environment.js",
-					"semi_transient": false,
+					"buffer": 5,
+					"file": "app/controllers/profiles.coffee",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1739,
+						"buffer_size": 686,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								557,
-								557
+								335,
+								335
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"file": "app/controllers/authentication.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1644,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								339,
+								339
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -1456,53 +1407,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/Brocfile.js",
+					"buffer": 7,
+					"file": "app/utils/auth/normalize-account.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 758,
+						"buffer_size": 3443,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								758,
-								758
+								2791,
+								2791
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "/Users/superstitio/Documents/workspace/sandbox/ember.js/white-gold/app/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 616,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								288,
-								288
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -1510,7 +1433,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1544,7 +1467,7 @@
 		"cols":
 		[
 			0.0,
-			0.426941393215,
+			0.457517841695,
 			1.0
 		],
 		"rows":
@@ -1566,6 +1489,7 @@
 	{
 		"height": 272.0
 	},
+	"pinned_build_system": "",
 	"project": "Gold.sublime-project",
 	"replace":
 	{
@@ -1575,8 +1499,93 @@
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"member",
+				"app/controllers/member.coffee"
+			],
+			[
+				"normal",
+				"app/utils/auth/normalize-account.coffee"
+			],
+			[
+				"profiles",
+				"app/controllers/profiles.coffee"
+			],
+			[
+				"profile",
+				"app/controllers/profile.coffee"
+			],
+			[
+				"norm",
+				"app/utils/auth/normalize-account.coffee"
+			],
+			[
+				"memb",
+				"app/controllers/member.coffee"
+			],
+			[
+				"authe",
+				"app/controllers/authentication.coffee"
+			],
+			[
+				"",
+				"app/controllers/application.coffee"
+			],
+			[
+				"pack",
+				"Gold/package.json"
+			],
+			[
+				"bower",
+				"Gold/bower.json"
+			],
+			[
+				"p",
+				"Gold/package.json"
+			],
+			[
+				"mem",
+				"app/models/member.coffee"
+			],
+			[
+				"nor",
+				"app/utils/auth/normalize-account.coffee"
+			],
+			[
+				"session",
+				"app/controllers/session.coffee"
+			],
+			[
+				"membe",
+				"app/controllers/member.coffee"
+			],
+			[
+				"envi",
+				"Gold/config/environment.js"
+			],
+			[
+				".git",
+				"Gold/.gitignore"
+			],
+			[
+				"test-suppo",
+				"Gold/dist/assets/test-support.js"
+			],
+			[
+				"sess",
+				"app/controllers/session.coffee"
+			],
+			[
+				"prof",
+				"app/controllers/profile.coffee"
+			],
+			[
+				"pac",
+				"Gold/package.json"
+			],
 			[
 				"bro",
 				"Gold/Brocfile.js"
@@ -1587,14 +1596,6 @@
 			],
 			[
 				"bowe",
-				"Gold/bower.json"
-			],
-			[
-				"pack",
-				"Gold/package.json"
-			],
-			[
-				"bower",
 				"Gold/bower.json"
 			],
 			[
@@ -1614,10 +1615,6 @@
 				"lingu.is/Gruntfile.coffee"
 			],
 			[
-				"pac",
-				"lingu.is/package.json"
-			],
-			[
 				"appli",
 				"app/templates/application.emblem"
 			],
@@ -1634,36 +1631,16 @@
 				"app/controllers/connection.coffee"
 			],
 			[
-				"member",
-				"app/controllers/member.coffee"
-			],
-			[
-				"mem",
-				"app/controllers/member.coffee"
-			],
-			[
 				"package",
 				"lingu.is/package.json"
-			],
-			[
-				"session",
-				"app/controllers/session.coffee"
 			],
 			[
 				"connec",
 				"app/controllers/connection.coffee"
 			],
 			[
-				"authe",
-				"lingu.is/app/controllers/authentication.coffee"
-			],
-			[
 				"devel",
 				"lingu.is/config/environments/development.js"
-			],
-			[
-				"sess",
-				"app/controllers/session.coffee"
 			],
 			[
 				"deve",
@@ -1676,10 +1653,6 @@
 			[
 				"develo",
 				"lingu.is/config/environments/development.js"
-			],
-			[
-				"memb",
-				"app/controllers/member.coffee"
 			],
 			[
 				"authen",
@@ -1730,20 +1703,8 @@
 				"app/templates/application.emblem"
 			],
 			[
-				"profiles",
-				"lingu.is/app/controllers/profiles.coffee"
-			],
-			[
-				"profile",
-				"lingu.is/app/controllers/profile.coffee"
-			],
-			[
 				"sessiocon",
 				"app/views/sessions-container.coffee"
-			],
-			[
-				"norm",
-				"app/utils/auth/normalize-account.coffee"
 			],
 			[
 				"sessioncon",
@@ -1794,10 +1755,6 @@
 				"lingu.is/node_modules/grunt-contrib-watch/test/fixtures/dateFormat/Gruntfile.js"
 			],
 			[
-				"p",
-				"lingu.is/package.json"
-			],
-			[
 				"exp",
 				"lingu.is/tasks/express-server.coffee"
 			],
@@ -1840,10 +1797,6 @@
 			[
 				"fireplace",
 				"lingu.is/vendor/fireplace/dist/fireplace.js"
-			],
-			[
-				"normal",
-				"app/utils/auth/normalize-account.coffee"
 			],
 			[
 				"application",
@@ -1924,10 +1877,6 @@
 			[
 				"aplicaion",
 				"app/templates/application.emblem"
-			],
-			[
-				"membe",
-				"app/controllers/member.coffee"
 			],
 			[
 				"teste",
@@ -2064,30 +2013,6 @@
 			[
 				"serve",
 				"server/server.coffee"
-			],
-			[
-				"anim",
-				"lingu.is/vendor/scripts/AnimOnScroll.js"
-			],
-			[
-				"font",
-				"lingu.is/vendor/styles/fonts-collection.css"
-			],
-			[
-				"emblem",
-				"lingu.is/vendor/scripts/emblem.js"
-			],
-			[
-				"mod",
-				"app/assets/javascripts/modernizr.js"
-			],
-			[
-				"indexcontr",
-				"app/controllers/indexController.coffee"
-			],
-			[
-				"join",
-				"app/controllers/joinController.coffee"
 			]
 		],
 		"width": 0.0
@@ -2095,11 +2020,12 @@
 	"select_project":
 	{
 		"height": 500.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
 				"",
-				"~/Documents/workspace/sandbox/ember.js/LeaseCal/LeaseCal.sublime-project"
+				"~/Documents/workspace/sandbox/node.js/brunch/ember.js/hunter-warfield/hunter-warfield.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -2107,6 +2033,7 @@
 	"select_symbol":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],

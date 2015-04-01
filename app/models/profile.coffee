@@ -1,7 +1,7 @@
 profile   = DS.Model.extend
   identity:     DS.attr()
   uid:          DS.attr()
-  uuid:         DS.attr()
+  # uuid:         DS.attr()
   provider:     DS.attr()
   createdOn:    DS.attr('timestamp', defaultValue: -> Firebase.ServerValue.TIMESTAMP)
   

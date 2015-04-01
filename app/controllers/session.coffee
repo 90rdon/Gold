@@ -1,39 +1,67 @@
 `import config from '../config/environment'`
 
 sessionController = Ember.ObjectController.extend
-  needs: [
-    'application'
+  needs: [    
     'presence'
     'member'
-    'members'
+    'sessions'
   ]
 
   session:        null
   presence:       null
   member:         null
 
-  # status: (->
-  #   @setMyStatus(@get('controllers.presence').get('status'))
-  # ).observes('controllers.presence.status')
+  status: null
+
+  statusWatch: (->
+    status = @get('controllers.presence').get('status')
+    @set('status', status)
+    if @get('session')?
+      @get('session').set('status', status)  
+      @get('session').save()
+    
+    @get('controllers.member').refresh(@get('member'), status)
+  ).observes('controllers.presence.status')
 
   start: (member) ->
     self = @
-    # @setMyStatus(@get('status'))
-    @set('member', member)
+    session = @get('session')
 
     # --- automatically set the presence ---
-    @set('presence', @get('controllers.presence').get('presence'))
+    @set('presence', self.get('controllers.presence').get('presence'))
+
+    new Ember.RSVP.Promise (resolve, reject) ->
+
+      if session?
+        reject('No action taken. We have a session already.')
+      else        
+        # @setMyStatus(@get('status'))
+        self.set('member', member)
+        self.set('controllers.member.uuid', member.id)
+
+        
+        self.get('controllers.sessions').alive(member).then (session) ->
+          if session?
+            # --- here is the alive session ---
+            resolve(session)
+          else
+            # --- lets create a new session here ---
+            self.create().then (session) ->
+              self.set('session', session)
+              resolve(session)
+
+  create: ->
+    self = @
     new Ember.RSVP.Promise (resolve, reject) ->
 
       session = self.store.createRecord 'session', 
-        member: member
+        member: self.get('member')
+        status: 'online'
+
       session.get('presences').addObject(self.get('presence'))
       session.save().then (session) ->
-        if session?
-          self.set('session', session)
-          resolve(self.onDisconnect(session))
-        else
-          reject()
+        self.onDisconnect(session)
+        resolve(session)
 
   onDisconnect: (session) ->
     self = @
@@ -41,27 +69,19 @@ sessionController = Ember.ObjectController.extend
     session.onDisconnect()
       .update
         off: Firebase.ServerValue.TIMESTAMP
-      , ->
-        self.set('session', null)
 
   finish: ->
-    # @setMyStatus('offline')
+    @get('controllers.presence').setMyStatus('offline')
 
     @set('presence', null)
     @set('session', null)
     @set('member', null)
+    @set('controllers.member.uuid', null)
 
-  setMyStatus: (status) ->
-    return  unless status
-    @set('status', status)
-    if @get('member')?
-      if @get('member').get('status') is 'offline'
-        @get('member').set('logged_on', false)
-      else
-        @get('member').set('logged_on', true)
-      @get('member').set('status', status)
-      @get('member').save()
-    return
+  # setMyStatus: (status) ->
+  #   return  unless status
+  #   @set('status', status)
+  #   @get('controllers.member').refresh(@get('member'), status)
 
   # last: (uuid) ->
   #   self = @
