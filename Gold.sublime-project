@@ -8,10 +8,10 @@
 			"path": "."
 		},
 		{
-			"path": "cordova"
+			"path": "tests"
 		},
 		{
-			"path": "tests"
+			"path": "/Users/superstitio/Documents/workspace/library/javascripts/emberfire/tests"
 		}
 	]
 }
