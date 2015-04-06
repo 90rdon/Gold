@@ -12,6 +12,7 @@
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
     "firebase": "~2.2.0",
-    "ember-data": "1.0.0-beta.16.1"
+    "ember-data": "1.0.0-beta.16.1",
+    "topcoat": "~0.8.0"
   }
 }
