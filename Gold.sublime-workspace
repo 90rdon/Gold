@@ -520,66 +520,53 @@
 	"buffers":
 	[
 		{
-			"file": "app/controllers/session.coffee",
+			"contents": "   ",
 			"settings":
 			{
-				"buffer_size": 2607,
+				"buffer_size": 3,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/controllers/sessions.coffee",
+			"contents": "`import startApp from 'tests/helpers/start-app'`\n`import { it } from 'ember-mocha'`\n`import stubFirebase from 'tests/helpers/stub-firebase'`\n`import unstubFirebase from 'tests/helpers/unstub-firebase'`\n`import createTestRef from 'tests/helpers/create-test-ref'`\n\ndescribe 'Integration: FirebaseAdapter - Updates from server', ->\n  app = undefined\n  store = undefined\n  adapter = undefined\n  firebaseTestRef = undefined\n\n  setupAdapter = ->\n    stubFirebase()\n    app = startApp()\n    firebaseTestRef = createTestRef()\n    store = app.__container__.lookup('store:main')\n    adapter = app.__container__.lookup('adapter:application')\n    adapter._ref = createTestRef('presences/normalized')\n    adapter._queueFlushDelay = false\n    # needs a better way that uses the container\n    app.Post = DS.Model.extend(\n      title: DS.attr('string')\n      body: DS.attr('string')  \n      published: DS.attr('number')\n      publishedDate: Ember.computed('published', ->\n        @get 'published'\n      )\n      user: DS.belongsTo('user', async: true)\n      comments: DS.hasMany('comment', async: true)\n      embeddedComments: DS.hasMany('comment', embedded: true))\n    app.Comment = DS.Model.extend(\n      body: DS.attr('string')\n      published: DS.attr('number')\n      publishedDate: Ember.computed('published', ->\n        @get 'published'\n      )\n      user: DS.belongsTo('user', async: true)\n      embeddedUser: DS.belongsTo('user',\n        embedded: true\n        inverse: null))\n\n    before ->\n      stubFirebase()\n\n    after ->\n      unstubFirebase()\n\n    afterEach ->\n      Ember.run app, 'destroy'\n      delete app.Post\n      delete app.Comment\n\n",
+			"file": "tests/integration/firebase-test.coffee",
+			"file_size": 1636,
+			"file_write_time": 130725657030000000,
 			"settings":
 			{
-				"buffer_size": 735,
+				"buffer_size": 1638,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/controllers/members.coffee",
+			"contents": "`import { test, moduleForModel } from 'ember-qunit'`\n\nmoduleForModel 'presence', 'Presence Model', \n  needs: [\n    'model:presence'\n    'model:session'\n    'model:member'\n    'model:profile'\n  ]\n\nmoduleForModel 'presence', \ntest 'Presence is a valid ember-data Model', (assert) ->\n  store = @store()\n  presence = @subject(\n    status: 'online'\n    device: 'unknown'\n    ip:     '127.0.0.1'\n    meta:   'data',\n    on:     Firebase.ServerValue.TIMESTAMP\n  )\n\n  assert.ok(presence)\n  assert.ok(presence instanceof DS.Model)\n  assert.equal(presence.toJSON(includeId: true), \n    status: 'online'\n    device: 'unknown'\n    ip:     '127.0.0.1'\n    meta:   'data'\n    on:     new Date('1/1/2000'), 'Presence are equal'\n  )\n\n  # set a relationship\n  Ember.run ->\n    member = store.createRecord('member',\n      first:    'Larry'\n      last:     'Bird'\n    )\n    session = store.createRecord('session',\n      member: member\n    )\n    session.get('presences').addObject(presence)\n\n    assert.ok(session)\n    assert.ok(session.get('presences').get('firstObject'))",
 			"settings":
 			{
-				"buffer_size": 736,
+				"buffer_size": 1053,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/controllers/member.coffee",
+			"contents": "import Ember from 'ember';\nimport DS from 'ember-data';\nimport startApp from 'dummy/tests/helpers/start-app';\nimport { it } from 'ember-mocha';\nimport stubFirebase from 'dummy/tests/helpers/stub-firebase';\nimport unstubFirebase from 'dummy/tests/helpers/unstub-firebase';\nimport createTestRef from 'dummy/tests/helpers/create-test-ref';\n\ndescribe 'Integration: FirebaseAdapter - Updates from server', ->\n  app = undefined\n  store = undefined\n  adapter = undefined\n  firebaseTestRef = undefined\n\n  setupAdapter = ->\n    stubFirebase()\n    app = startApp()\n    firebaseTestRef = createTestRef()\n    store = app.__container__.lookup('store:main')\n    adapter = app.__container__.lookup('adapter:application')\n    adapter._ref = createTestRef('blogs/normalized')\n    adapter._queueFlushDelay = false\n    # needs a better way that uses the container\n    app.Post = DS.Model.extend(\n      title: DS.attr('string')\n      body: DS.attr('string')\n      published: DS.attr('number')\n      publishedDate: Ember.computed('published', ->\n        @get 'published'\n      )\n      user: DS.belongsTo('user', async: true)\n      comments: DS.hasMany('comment', async: true)\n      embeddedComments: DS.hasMany('comment', embedded: true))\n    app.Comment = DS.Model.extend(\n      body: DS.attr('string')\n      published: DS.attr('number')\n      publishedDate: Ember.computed('published', ->\n        @get 'published'\n      )\n      user: DS.belongsTo('user', async: true)\n      embeddedUser: DS.belongsTo('user',\n        embedded: true\n        inverse: null))\n    return\n\n  before ->\n    stubFirebase()\n    return\n  after ->\n    unstubFirebase()\n    return\n  afterEach ->\n    Ember.run app, 'destroy'\n    delete app.Post\n    delete app.Comment\n    return\n  describe 'A locally created record is updated correctly after saving', ->\n    _ref = undefined\n    newPost = undefined\n    postId = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/tests/adapter/updaterecord/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        newPost = store.createRecord('post', title: 'New Post')\n        postId = newPost.get('id')\n        newPost.save().then ->\n          reference.child('posts').child(postId).child('title').set 'Updated', ->\n            done()\n            return\n          return\n        return\n      return\n    it 'updates the post correctly', ->\n      assert newPost.get('title') == 'Updated', 'property should change'\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'A record coming from find, gets the updates from the server correctly', ->\n    _ref = undefined\n    newPost = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('post', 'post_1').then (post) ->\n          newPost = post\n          reference.child('posts/post_1/body').set 'Updated', ->\n            done()\n            return\n          return\n        return\n      return\n    it 'updates the post correctly', ->\n      assert newPost.get('body') == 'Updated', 'property should change'\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'An embedded record coming from the server, gets the updates correctly', ->\n    _ref = undefined\n    comment = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/double_denormalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('post', 'post_1').then (post) ->\n          comment = post.get('embeddedComments').objectAt(0)\n          reference.child('posts/post_1/embeddedComments/comment_1/body').set 'Updated', ->\n            done()\n            return\n          return\n        return\n      return\n    it 'updates the comment correctly', ->\n      assert comment.get('body') == 'Updated', 'property should change'\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'Embedded record has transforms applied correctly, issue #88', ->\n    _ref = undefined\n    comment = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/double_denormalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('post', 'post_1').then (post) ->\n          comment = post.get('embeddedComments').objectAt(0)\n          done()\n          return\n        return\n      return\n    it 'Published transformed to a number', ->\n      assert typeof comment.get('published') == 'number'\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'Double embedded records are loaded correctly', ->\n    _ref = undefined\n    user = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/double_denormalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('post', 'post_1').then (post) ->\n          user = post.get('embeddedComments').objectAt(0).get('embeddedUser')\n          done()\n          return\n        return\n      return\n    it 'doubly embedded user is loaded correctly', ->\n      assert user.get('firstName') == 'Adam'\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'Setting a belongsTo to null, wipes it from the server as well issue #103', ->\n    _ref = undefined\n    commentData = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('comment', 'comment_1').then (comment) ->\n          comment.set 'user', null\n          comment.save().then ->\n            reference.child('comments/comment_1').once 'value', (data) ->\n              commentData = data.val()\n              done()\n              return\n            return\n          return\n        return\n      return\n    it 'Removed the user from the server', ->\n      assert !commentData.user\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'Deleting a record serverside, deletes it client side as well', ->\n    _ref = undefined\n    currentComment = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('comment', 'comment_1').then (comment) ->\n          currentComment = comment\n          reference.child('comments/comment_1').set null, ->\n            done()\n            return\n          return\n        return\n      return\n    it 'Comment was deleted client side as well', ->\n      assert currentComment.get('isDeleted')\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'hasMany relationships', ->\n    _ref = undefined\n    currentPost = undefined\n    reference = undefined\n    beforeEach (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('post', 'post_1').then (post) ->\n          currentPost = post\n          done()\n          return\n        return\n      return\n    it 'removes the correct client side association when removed on server', (done) ->\n      assert currentPost.get('comments.length') == 2, 'should have 2 related comments'\n      Ember.run ->\n        reference.child('posts/post_1/comments/comment_1').remove ->\n          assert currentPost.get('comments.firstObject.id') == 'comment_2', 'only comment_2 should remain'\n          done()\n          return\n        return\n      return\n    it 'removes all client side associations when entire property is removed', (done) ->\n      assert currentPost.get('comments.length') == 2, 'should have 2 related comments'\n      Ember.run ->\n        reference.child('posts/post_1/comments').remove ->\n          assert currentPost.get('comments.length') == 0, 'all related comments should be removed'\n          done()\n          return\n        return\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'belongsTo relationships', ->\n    _ref = undefined\n    currentComment = undefined\n    reference = undefined\n    beforeEach (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('comment', 'comment_1').then (comment) ->\n          currentComment = comment\n          done()\n          return\n        return\n      return\n    it 'removes the client side association when removed on server', (done) ->\n      assert currentComment.get('user.id'), 'should have a user'\n      Ember.run ->\n        reference.child('comments/comment_1/user').remove ->\n          assert currentComment.get('user'), 'user association should be missing'\n          done()\n          return\n        return\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'Deleting a record clientside, deletes it on the server side as well', ->\n    _ref = undefined\n    reference = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('comment', 'comment_2').then (comment) ->\n          comment.destroyRecord().then ->\n            done()\n            return\n          return\n        return\n      return\n    it 'Comment was deleted server side as well', (done) ->\n      reference.child('comments/comment_2').once 'value', (data) ->\n        assert data.val() == null\n        done()\n        return\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'Editing a found record clientside, edits it on the server side as well', ->\n    _ref = undefined\n    reference = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('comment', 'comment_3').then (comment) ->\n          comment.set 'body', 'Updated'\n          comment.save().then ->\n            done()\n            return\n          return\n        return\n      return\n    it 'Comment was edited server side as well', (done) ->\n      reference.child('comments/comment_3/body').once 'value', (data) ->\n        assert data.val() == 'Updated'\n        done()\n        return\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  return\n\n# ---\n# generated by js2coffee 2.0.3",
 			"settings":
 			{
-				"buffer_size": 2540,
+				"buffer_size": 11023,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/controllers/profile.coffee",
+			"contents": "`import Ember from 'ember'`\n`import DS from 'ember-data'`\n`import startApp from 'dummy/tests/helpers/start-app'`\n`import { it } from 'ember-mocha'`\n`import stubFirebase from 'dummy/tests/helpers/stub-firebase'`\n`import unstubFirebase from 'dummy/tests/helpers/unstub-firebase'`\n`import createTestRef from 'dummy/tests/helpers/create-test-ref'`\n\ndescribe 'Integration: FirebaseAdapter - Updates from server', ->\n  app = undefined\n  store = undefined\n  adapter = undefined\n  firebaseTestRef = undefined\n\n  setupAdapter = ->\n    stubFirebase()\n    app = startApp()\n    firebaseTestRef = createTestRef()\n    store = app.__container__.lookup('store:main')\n    adapter = app.__container__.lookup('adapter:application')\n    adapter._ref = createTestRef('presences/normalized')\n    adapter._queueFlushDelay = false\n    # needs a better way that uses the container\n    app.Post = DS.Model.extend(\n      title: DS.attr('string')\n      body: DS.attr('string')\n      published: DS.attr('number')\n      publishedDate: Ember.computed('published', ->\n        @get 'published'\n      )\n      user: DS.belongsTo('user', async: true)\n      comments: DS.hasMany('comment', async: true)\n      embeddedComments: DS.hasMany('comment', embedded: true))\n    app.Comment = DS.Model.extend(\n      body: DS.attr('string')\n      published: DS.attr('number')\n      publishedDate: Ember.computed('published', ->\n        @get 'published'\n      )\n      user: DS.belongsTo('user', async: true)\n      embeddedUser: DS.belongsTo('user',\n        embedded: true\n        inverse: null))\n\n    before ->\n      stubFirebase()\n\n    after ->\n      unstubFirebase()\n\n    afterEach ->\n      Ember.run app, 'destroy'\n      delete app.Post\n      delete app.Comment\n\n",
 			"settings":
 			{
-				"buffer_size": 1401,
+				"buffer_size": 1718,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/controllers/profiles.coffee",
+			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 686,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/authentication.coffee",
-			"settings":
-			{
-				"buffer_size": 1644,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/utils/auth/normalize-account.coffee",
-			"settings":
-			{
-				"buffer_size": 3443,
+				"buffer_size": 1345,
 				"line_ending": "Unix"
 			}
 		}
@@ -671,32 +658,41 @@
 	"expanded_folders":
 	[
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers"
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests"
 	],
 	"file_history":
 	[
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/member.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/member.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/npm/doc/api/npm-outdated.md",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/test-helper.js",
+		"/Users/superstitio/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/.jshintrc",
+		"/Users/superstitio/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/superstitio/Library/Application Support/Sublime Text 3/Packages/Preferences.sublime-settings",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/bower.json",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/utils/auth/normalize-account.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/profiles.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/presence.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/package.json",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/authentication.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/sessions.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/session.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/integration/authentication-test.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/members.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/member.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/profile.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/member.coffee",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/npm/doc/api/npm-outdated.md",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/profiles.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/profile.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/initializers/presence.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/presence.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/views/presence-container.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/initializers/authentication.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/glob/test/pause-resume.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/package.json",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/session.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/models/presence.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/lib/utilities/ember-cli-version.js",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/application.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/authentication.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/session.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/profile.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/emberfire/dist/emberfire.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/bower.json",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/adapters/firebase.js",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/Brocfile.js",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/initializers/session.coffee",
@@ -716,7 +712,6 @@
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/lib/tasks/npm-install.js",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/cordova/config.xml",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/node_modules/ember-cli/node_modules/core-object/core-object.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/test-helper.js",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/.gitignore",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/.bowerrc",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/integration/index-test.coffee",
@@ -796,13 +791,7 @@
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/member.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/templates/application.emblem",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/connection.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/call.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/Gruntfile.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/models/session.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/session.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/connect-livereload/package.json",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/bower/node_modules/mout/lang/isNull.js",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/node_modules/grunt-contrib-clean/docs/clean-options.md"
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/call.coffee"
 	],
 	"find":
 	{
@@ -916,6 +905,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			";",
 			"session",
 			"authenticate",
 			"uid",
@@ -1042,8 +1032,7 @@
 			"memberSession",
 			"store",
 			"\"",
-			"snapshot",
-			"authentication"
+			"snapshot"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1051,6 +1040,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
 			"session",
 			"presence",
 			"member",
@@ -1177,8 +1167,7 @@
 			"'",
 			"images",
 			"img",
-			"'",
-			"index"
+			"'"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1189,24 +1178,58 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/controllers/session.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2607,
+						"buffer_size": 3,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1100,
-								1100
+								3,
+								3
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "tests/integration/firebase-test.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1638,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								479,
+								479
 							]
 						],
 						"settings":
@@ -1214,34 +1237,6 @@
 							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 225.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/controllers/sessions.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 735,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								322,
-								322
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1252,19 +1247,76 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app/controllers/members.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 736,
+						"buffer_size": 1053,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								382,
-								382
+								223,
+								223
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11023,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								493,
+								493
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1718,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								500,
+								500
 							]
 						],
 						"settings":
@@ -1281,159 +1333,33 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/controllers/member.coffee",
+					"buffer": 5,
+					"file": "package.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2540,
+						"buffer_size": 1345,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								427,
-								427
+								437,
+								437
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 23.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/controllers/profile.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1401,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								617,
-								624
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/controllers/profiles.coffee",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 686,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								335,
-								335
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 6,
-					"file": "app/controllers/authentication.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1644,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								339,
-								339
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/utils/auth/normalize-account.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3443,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2791,
-								2791
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1503,6 +1429,22 @@
 		"selected_items":
 		[
 			[
+				"packe",
+				"Gold/package.json"
+			],
+			[
+				"bower",
+				"Gold/bower.json"
+			],
+			[
+				"pack",
+				"Gold/package.json"
+			],
+			[
+				"presen",
+				"app/controllers/presence.coffee"
+			],
+			[
 				"member",
 				"app/controllers/member.coffee"
 			],
@@ -1533,14 +1475,6 @@
 			[
 				"",
 				"app/controllers/application.coffee"
-			],
-			[
-				"pack",
-				"Gold/package.json"
-			],
-			[
-				"bower",
-				"Gold/bower.json"
 			],
 			[
 				"p",
@@ -2005,14 +1939,6 @@
 			[
 				"confi",
 				"lingu.is/config.coffee"
-			],
-			[
-				"ser",
-				"server/server.coffee"
-			],
-			[
-				"serve",
-				"server/server.coffee"
 			]
 		],
 		"width": 0.0
@@ -2025,7 +1951,7 @@
 		[
 			[
 				"",
-				"~/Documents/workspace/sandbox/node.js/brunch/ember.js/hunter-warfield/hunter-warfield.sublime-project"
+				"~/Documents/workspace/sandbox/ember.js/lingu.is/lingu.is.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -2039,7 +1965,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
