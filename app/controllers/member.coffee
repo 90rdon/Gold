@@ -37,8 +37,10 @@ memberController = Ember.ObjectController.extend
           , (error) ->
             reject(error)
       else
-        if self.get('controllers.session').get('member')?
-          resolve(self.get('controllers.session').get('member'))
+        member = self.get('controllers.session').get('member')
+        if member?
+          self.addProfile(member, profile)
+          resolve(self.set('controllers.session').set('member', member))
         else
           self.create(profile).then (member) ->
             resolve(member)
@@ -70,16 +72,21 @@ memberController = Ember.ObjectController.extend
     self = @
     new Ember.RSVP.Promise (resolve, reject) ->
 
-      Parse.normalize(profile).then (memberJSON) ->
-        # memberJSON.id = profile.toJSON().uuid
-        uuid = UUID.createUuid()
-        memberJSON.id = uuid
-        member = self.store.createRecord('member', memberJSON)
-        member.save().then (member) ->
-          self.addProfile(member, profile).then (member) ->
-            resolve(member)
-          , (error) ->
-            reject(error)
+      member = self.get('controllers.session').get('member')
+      if member?
+        self.addProfile(member, profile)
+
+      else
+        Parse.normalize(profile).then (memberJSON) ->
+          # memberJSON.id = profile.toJSON().uuid
+          uuid = UUID.createUuid()
+          memberJSON.id = uuid
+          member = self.store.createRecord('member', memberJSON)
+          member.save().then (member) ->
+            self.addProfile(member, profile).then (member) ->
+              resolve(member)
+            , (error) ->
+              reject(error)
 
   refresh: (member, status) ->
     self = @

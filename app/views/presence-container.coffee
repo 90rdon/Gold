@@ -4,11 +4,12 @@ presenceContainer = Ember.View.extend
     self = @
     @get('controller').get('controllers.presence').onConnect()
     document.onIdle = ->
-      self.get('controller').get('controllers.presence').setMyStatus('idle')
+      # put the 'offline' check instead of in the controller so we can stop the view to stop sending status if we are already 'offline'
+      self.get('controller').get('controllers.presence').setMyStatus('idle')  unless self.get('controller').get('controllers.presence').get('status') is 'offline'
     document.onAway = ->
-      self.get('controller').get('controllers.presence').setMyStatus('away')
+      self.get('controller').get('controllers.presence').setMyStatus('away')  unless self.get('controller').get('controllers.presence').get('status') is 'offline'
     document.onBack = (isIdle, isAway)->
-      self.get('controller').get('controllers.presence').setMyStatus('online')
+      self.get('controller').get('controllers.presence').setMyStatus('online')  unless self.get('controller').get('controllers.presence').get('status') is 'offline'
 
     setIdleTimeout(5000)
     setAwayTimeout(10000)

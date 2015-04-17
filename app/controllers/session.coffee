@@ -43,7 +43,9 @@ sessionController = Ember.ObjectController.extend
         self.get('controllers.sessions').alive(member).then (session) ->
           if session?
             # --- here is the alive session ---
-            resolve(session)
+            session.get('presences').addObject(self.get('presence'))
+            session.save().then (session) ->
+              resolve(session)
           else
             # --- lets create a new session here ---
             self.create().then (session) ->
@@ -58,6 +60,9 @@ sessionController = Ember.ObjectController.extend
         member: self.get('member')
         status: 'online'
 
+      self.get('controllers.presence').setMyStatus('online')
+      self.get('controllers.member').refresh(self.get('member'), 'online')
+
       session.get('presences').addObject(self.get('presence'))
       session.save().then (session) ->
         self.onDisconnect(session)
@@ -68,10 +73,12 @@ sessionController = Ember.ObjectController.extend
     session = new Firebase(config.firebase + '/sessions/' + session.id)
     session.onDisconnect()
       .update
+        status: 'offline'
         off: Firebase.ServerValue.TIMESTAMP
 
   finish: ->
-    @get('controllers.presence').setMyStatus('offline')
+    # @get('controllers.presence').setMyStatus('offline')
+    @get('controllers.member').refresh(@get('member'), 'offline')
 
     @set('presence', null)
     @set('session', null)

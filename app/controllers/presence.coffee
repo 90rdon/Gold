@@ -13,10 +13,7 @@ presenceController = Ember.Controller.extend
     @set('connectedRef', new Firebase(config.firebase + '/.info/connected'))
     
     @get('connectedRef').on 'value', (ispresence) ->
-      if ispresence.val()
-        self.setMyStatus('online')
-      else
-        self.setMyStatus('offline')
+      self.setMyStatus('online')  if ispresence.val()
 
   onConnect: ->
     self = @

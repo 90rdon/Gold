@@ -20,11 +20,8 @@ authenticationController = Ember.Controller.extend
     # @_super()
     @firebaseRef = new Firebase(config.firebase)
     @firebaseRef.onAuth (authData) ->
-      if authData
-        # --- authenticating to our app ---
-        self.validate(authData)
-      else
-        self.invalidate()
+      # --- authenticating to our app ---
+      self.validate(authData)
 
   login: (provider) ->
     return @firebaseRef.authWithOAuthPopup('github', @validate)  if (provider is 'github')
@@ -36,6 +33,20 @@ authenticationController = Ember.Controller.extend
     @firebaseRef.unauth()
     @invalidate()
 
+  validate: (authData) ->
+    self = @
+    if authData
+      @authenticate(authData).then (member) ->
+        self.get('controllers.session').start(member).then (session) ->
+          self.set('session', session)
+    else
+      @invalidate()    
+
+  invalidate: ->
+    @set('session', null)   
+    @get('controllers.session').finish()
+
+
   # --- authenticating to our app ---
   authenticate: (authData) ->
     self = @
@@ -46,18 +57,6 @@ authenticationController = Ember.Controller.extend
           resolve(member)
         , (error) ->
           reject(error)
-
-  validate: (authData) ->
-    self = @
-    @authenticate(authData).then (member) ->
-      self.get('controllers.session').start(member).then (session) ->
-        self.set('session', session)
-      , (error) ->
-        return
-
-  invalidate: ->
-    @set('session', null)   
-    @get('controllers.session').finish()
 
 
 `export default authenticationController`
