@@ -5,7 +5,7 @@ presenceController = Ember.Controller.extend
     'application'
   ]
 
-  status:        null
+  status:        'ready'
   presence:      null
 
   init: ->
@@ -39,11 +39,9 @@ presenceController = Ember.Controller.extend
     self = @
     presence = new Firebase(config.firebase + '/presences/' + @get('presence').id)
     presence.onDisconnect()
-      .update
+      .update 
         off: Firebase.ServerValue.TIMESTAMP
         status: 'offline'
-      , ->
-        self.set('status', 'offline')
 
   setMyStatus: (status) ->
     @set('status', status)
