@@ -1,9 +1,11 @@
-<h4 id="brand">Index</h4>
-Gold
-
-<br />
-
-<button {{action 'login' 'github'}}>github</button>
-<button {{action 'login' 'facebook'}}>facebook</button>
-<button {{action 'login' 'twitter'}}>twitter</button>
-<button {{action 'logout'}}>logout</button>
+I speak 
+{{view "select" content=natives class="topcoat-select"}}
+<hr />
+and I need a translator who speaks
+<ul class="topcoat-list">
+  {{#each languages}}
+    <li>
+      <button class="topcoat-button" {{action 'setLanguage' '{{this}}'}}>{{this}}</button>
+    </li>
+  {{/each}}
+</ul>

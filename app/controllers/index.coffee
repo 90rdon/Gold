@@ -1,8 +1,14 @@
+`import config from '../config/environment'`
+
 indexController = Ember.ObjectController.extend
   needs: [
     # 'members'
+    'application'
     'authentication'
   ]
+
+  languages: config.languages
+  natives: config.natives
 
   # search:     null
   # memberList: null

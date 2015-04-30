@@ -520,53 +520,92 @@
 	"buffers":
 	[
 		{
-			"contents": "   ",
+			"file": "app/templates/index.hbs",
 			"settings":
 			{
-				"buffer_size": 3,
+				"buffer_size": 283,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "`import startApp from 'tests/helpers/start-app'`\n`import { it } from 'ember-mocha'`\n`import stubFirebase from 'tests/helpers/stub-firebase'`\n`import unstubFirebase from 'tests/helpers/unstub-firebase'`\n`import createTestRef from 'tests/helpers/create-test-ref'`\n\ndescribe 'Integration: FirebaseAdapter - Updates from server', ->\n  app = undefined\n  store = undefined\n  adapter = undefined\n  firebaseTestRef = undefined\n\n  setupAdapter = ->\n    stubFirebase()\n    app = startApp()\n    firebaseTestRef = createTestRef()\n    store = app.__container__.lookup('store:main')\n    adapter = app.__container__.lookup('adapter:application')\n    adapter._ref = createTestRef('presences/normalized')\n    adapter._queueFlushDelay = false\n    # needs a better way that uses the container\n    app.Post = DS.Model.extend(\n      title: DS.attr('string')\n      body: DS.attr('string')  \n      published: DS.attr('number')\n      publishedDate: Ember.computed('published', ->\n        @get 'published'\n      )\n      user: DS.belongsTo('user', async: true)\n      comments: DS.hasMany('comment', async: true)\n      embeddedComments: DS.hasMany('comment', embedded: true))\n    app.Comment = DS.Model.extend(\n      body: DS.attr('string')\n      published: DS.attr('number')\n      publishedDate: Ember.computed('published', ->\n        @get 'published'\n      )\n      user: DS.belongsTo('user', async: true)\n      embeddedUser: DS.belongsTo('user',\n        embedded: true\n        inverse: null))\n\n    before ->\n      stubFirebase()\n\n    after ->\n      unstubFirebase()\n\n    afterEach ->\n      Ember.run app, 'destroy'\n      delete app.Post\n      delete app.Comment\n\n",
-			"file": "tests/integration/firebase-test.coffee",
-			"file_size": 1636,
-			"file_write_time": 130725657030000000,
+			"file": "app/controllers/index.coffee",
 			"settings":
 			{
-				"buffer_size": 1638,
+				"buffer_size": 1754,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "`import { test, moduleForModel } from 'ember-qunit'`\n\nmoduleForModel 'presence', 'Presence Model', \n  needs: [\n    'model:presence'\n    'model:session'\n    'model:member'\n    'model:profile'\n  ]\n\nmoduleForModel 'presence', \ntest 'Presence is a valid ember-data Model', (assert) ->\n  store = @store()\n  presence = @subject(\n    status: 'online'\n    device: 'unknown'\n    ip:     '127.0.0.1'\n    meta:   'data',\n    on:     Firebase.ServerValue.TIMESTAMP\n  )\n\n  assert.ok(presence)\n  assert.ok(presence instanceof DS.Model)\n  assert.equal(presence.toJSON(includeId: true), \n    status: 'online'\n    device: 'unknown'\n    ip:     '127.0.0.1'\n    meta:   'data'\n    on:     new Date('1/1/2000'), 'Presence are equal'\n  )\n\n  # set a relationship\n  Ember.run ->\n    member = store.createRecord('member',\n      first:    'Larry'\n      last:     'Bird'\n    )\n    session = store.createRecord('session',\n      member: member\n    )\n    session.get('presences').addObject(presence)\n\n    assert.ok(session)\n    assert.ok(session.get('presences').get('firstObject'))",
+			"file": "config/environment.js",
 			"settings":
 			{
-				"buffer_size": 1053,
+				"buffer_size": 2047,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "import Ember from 'ember';\nimport DS from 'ember-data';\nimport startApp from 'dummy/tests/helpers/start-app';\nimport { it } from 'ember-mocha';\nimport stubFirebase from 'dummy/tests/helpers/stub-firebase';\nimport unstubFirebase from 'dummy/tests/helpers/unstub-firebase';\nimport createTestRef from 'dummy/tests/helpers/create-test-ref';\n\ndescribe 'Integration: FirebaseAdapter - Updates from server', ->\n  app = undefined\n  store = undefined\n  adapter = undefined\n  firebaseTestRef = undefined\n\n  setupAdapter = ->\n    stubFirebase()\n    app = startApp()\n    firebaseTestRef = createTestRef()\n    store = app.__container__.lookup('store:main')\n    adapter = app.__container__.lookup('adapter:application')\n    adapter._ref = createTestRef('blogs/normalized')\n    adapter._queueFlushDelay = false\n    # needs a better way that uses the container\n    app.Post = DS.Model.extend(\n      title: DS.attr('string')\n      body: DS.attr('string')\n      published: DS.attr('number')\n      publishedDate: Ember.computed('published', ->\n        @get 'published'\n      )\n      user: DS.belongsTo('user', async: true)\n      comments: DS.hasMany('comment', async: true)\n      embeddedComments: DS.hasMany('comment', embedded: true))\n    app.Comment = DS.Model.extend(\n      body: DS.attr('string')\n      published: DS.attr('number')\n      publishedDate: Ember.computed('published', ->\n        @get 'published'\n      )\n      user: DS.belongsTo('user', async: true)\n      embeddedUser: DS.belongsTo('user',\n        embedded: true\n        inverse: null))\n    return\n\n  before ->\n    stubFirebase()\n    return\n  after ->\n    unstubFirebase()\n    return\n  afterEach ->\n    Ember.run app, 'destroy'\n    delete app.Post\n    delete app.Comment\n    return\n  describe 'A locally created record is updated correctly after saving', ->\n    _ref = undefined\n    newPost = undefined\n    postId = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/tests/adapter/updaterecord/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        newPost = store.createRecord('post', title: 'New Post')\n        postId = newPost.get('id')\n        newPost.save().then ->\n          reference.child('posts').child(postId).child('title').set 'Updated', ->\n            done()\n            return\n          return\n        return\n      return\n    it 'updates the post correctly', ->\n      assert newPost.get('title') == 'Updated', 'property should change'\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'A record coming from find, gets the updates from the server correctly', ->\n    _ref = undefined\n    newPost = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('post', 'post_1').then (post) ->\n          newPost = post\n          reference.child('posts/post_1/body').set 'Updated', ->\n            done()\n            return\n          return\n        return\n      return\n    it 'updates the post correctly', ->\n      assert newPost.get('body') == 'Updated', 'property should change'\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'An embedded record coming from the server, gets the updates correctly', ->\n    _ref = undefined\n    comment = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/double_denormalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('post', 'post_1').then (post) ->\n          comment = post.get('embeddedComments').objectAt(0)\n          reference.child('posts/post_1/embeddedComments/comment_1/body').set 'Updated', ->\n            done()\n            return\n          return\n        return\n      return\n    it 'updates the comment correctly', ->\n      assert comment.get('body') == 'Updated', 'property should change'\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'Embedded record has transforms applied correctly, issue #88', ->\n    _ref = undefined\n    comment = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/double_denormalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('post', 'post_1').then (post) ->\n          comment = post.get('embeddedComments').objectAt(0)\n          done()\n          return\n        return\n      return\n    it 'Published transformed to a number', ->\n      assert typeof comment.get('published') == 'number'\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'Double embedded records are loaded correctly', ->\n    _ref = undefined\n    user = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/double_denormalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('post', 'post_1').then (post) ->\n          user = post.get('embeddedComments').objectAt(0).get('embeddedUser')\n          done()\n          return\n        return\n      return\n    it 'doubly embedded user is loaded correctly', ->\n      assert user.get('firstName') == 'Adam'\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'Setting a belongsTo to null, wipes it from the server as well issue #103', ->\n    _ref = undefined\n    commentData = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('comment', 'comment_1').then (comment) ->\n          comment.set 'user', null\n          comment.save().then ->\n            reference.child('comments/comment_1').once 'value', (data) ->\n              commentData = data.val()\n              done()\n              return\n            return\n          return\n        return\n      return\n    it 'Removed the user from the server', ->\n      assert !commentData.user\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'Deleting a record serverside, deletes it client side as well', ->\n    _ref = undefined\n    currentComment = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('comment', 'comment_1').then (comment) ->\n          currentComment = comment\n          reference.child('comments/comment_1').set null, ->\n            done()\n            return\n          return\n        return\n      return\n    it 'Comment was deleted client side as well', ->\n      assert currentComment.get('isDeleted')\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'hasMany relationships', ->\n    _ref = undefined\n    currentPost = undefined\n    reference = undefined\n    beforeEach (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('post', 'post_1').then (post) ->\n          currentPost = post\n          done()\n          return\n        return\n      return\n    it 'removes the correct client side association when removed on server', (done) ->\n      assert currentPost.get('comments.length') == 2, 'should have 2 related comments'\n      Ember.run ->\n        reference.child('posts/post_1/comments/comment_1').remove ->\n          assert currentPost.get('comments.firstObject.id') == 'comment_2', 'only comment_2 should remain'\n          done()\n          return\n        return\n      return\n    it 'removes all client side associations when entire property is removed', (done) ->\n      assert currentPost.get('comments.length') == 2, 'should have 2 related comments'\n      Ember.run ->\n        reference.child('posts/post_1/comments').remove ->\n          assert currentPost.get('comments.length') == 0, 'all related comments should be removed'\n          done()\n          return\n        return\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'belongsTo relationships', ->\n    _ref = undefined\n    currentComment = undefined\n    reference = undefined\n    beforeEach (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('comment', 'comment_1').then (comment) ->\n          currentComment = comment\n          done()\n          return\n        return\n      return\n    it 'removes the client side association when removed on server', (done) ->\n      assert currentComment.get('user.id'), 'should have a user'\n      Ember.run ->\n        reference.child('comments/comment_1/user').remove ->\n          assert currentComment.get('user'), 'user association should be missing'\n          done()\n          return\n        return\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'Deleting a record clientside, deletes it on the server side as well', ->\n    _ref = undefined\n    reference = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('comment', 'comment_2').then (comment) ->\n          comment.destroyRecord().then ->\n            done()\n            return\n          return\n        return\n      return\n    it 'Comment was deleted server side as well', (done) ->\n      reference.child('comments/comment_2').once 'value', (data) ->\n        assert data.val() == null\n        done()\n        return\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  describe 'Editing a found record clientside, edits it on the server side as well', ->\n    _ref = undefined\n    reference = undefined\n    before (done) ->\n      setupAdapter()\n      _ref = adapter._ref\n      reference = firebaseTestRef.child('blogs/normalized')\n      adapter._ref = reference\n      Ember.run ->\n        store.find('comment', 'comment_3').then (comment) ->\n          comment.set 'body', 'Updated'\n          comment.save().then ->\n            done()\n            return\n          return\n        return\n      return\n    it 'Comment was edited server side as well', (done) ->\n      reference.child('comments/comment_3/body').once 'value', (data) ->\n        assert data.val() == 'Updated'\n        done()\n        return\n      return\n    after (done) ->\n      adapter._ref = _ref\n      done()\n      return\n    return\n  return\n\n# ---\n# generated by js2coffee 2.0.3",
+			"file": "app/templates/application.hbs",
 			"settings":
 			{
-				"buffer_size": 11023,
+				"buffer_size": 43,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "`import Ember from 'ember'`\n`import DS from 'ember-data'`\n`import startApp from 'dummy/tests/helpers/start-app'`\n`import { it } from 'ember-mocha'`\n`import stubFirebase from 'dummy/tests/helpers/stub-firebase'`\n`import unstubFirebase from 'dummy/tests/helpers/unstub-firebase'`\n`import createTestRef from 'dummy/tests/helpers/create-test-ref'`\n\ndescribe 'Integration: FirebaseAdapter - Updates from server', ->\n  app = undefined\n  store = undefined\n  adapter = undefined\n  firebaseTestRef = undefined\n\n  setupAdapter = ->\n    stubFirebase()\n    app = startApp()\n    firebaseTestRef = createTestRef()\n    store = app.__container__.lookup('store:main')\n    adapter = app.__container__.lookup('adapter:application')\n    adapter._ref = createTestRef('presences/normalized')\n    adapter._queueFlushDelay = false\n    # needs a better way that uses the container\n    app.Post = DS.Model.extend(\n      title: DS.attr('string')\n      body: DS.attr('string')\n      published: DS.attr('number')\n      publishedDate: Ember.computed('published', ->\n        @get 'published'\n      )\n      user: DS.belongsTo('user', async: true)\n      comments: DS.hasMany('comment', async: true)\n      embeddedComments: DS.hasMany('comment', embedded: true))\n    app.Comment = DS.Model.extend(\n      body: DS.attr('string')\n      published: DS.attr('number')\n      publishedDate: Ember.computed('published', ->\n        @get 'published'\n      )\n      user: DS.belongsTo('user', async: true)\n      embeddedUser: DS.belongsTo('user',\n        embedded: true\n        inverse: null))\n\n    before ->\n      stubFirebase()\n\n    after ->\n      unstubFirebase()\n\n    afterEach ->\n      Ember.run app, 'destroy'\n      delete app.Post\n      delete app.Comment\n\n",
+			"file": "app/styles/flexbox-grid.styl",
 			"settings":
 			{
-				"buffer_size": 1718,
+				"buffer_size": 1628,
+				"line_ending": "Unix",
+				"name": "// import nib for cross browser features"
+			}
+		},
+		{
+			"file": "app/styles/topcoat.css",
+			"settings":
+			{
+				"buffer_size": 3702,
+				"line_ending": "Unix",
+				"name": "/**"
+			}
+		},
+		{
+			"file": "bower.json",
+			"settings":
+			{
+				"buffer_size": 521,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "package.json",
+			"file": "server/routes/token.js",
 			"settings":
 			{
-				"buffer_size": 1345,
+				"buffer_size": 2171,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "view 'sessions-container'\n  .topcoat-navigation-bar.effeckt\n    .topcoat-navigation-bar__item.left.quarter\n      a href='#'\n        .topcoat-navigation-bar__title.center\n          if controllers.authentication.authenticated\n            span\n              controllers.session.memberDisplayName\n          else\n            span.icomatic.icomatic-lg home\n    \n    .topcoat-navigation-bar__item.center.half.veritcal-middle\n      view Em.TextField class='topcoat-search-input' type='search' valueBinding='controllers.index.search' placeholder='search'\n\n    .topcoat-navigation-bar__item.center.quarter\n      a#off-screen-nav-button.topcoat-icon-button-quiet.off-screen-nav-button data-effeckt='effeckt-off-screen-nav-top-overlay'\n        if controllers.authentication.authenticated\n          span.user-icon.icomatic unlock\n        else\n          span.user-icon.icomatic lock\n\n  view 'effeckt-container'\n    view 'effeckt-off-screen-nav'\n      nav#effeckt-off-screen-nav.effeckt-off-screen-nav.topcoat-list__container style='display:block;'      \n        .offscreen-nav-container\n          h4.topcoat-list__header.off-screen-nav-header.center\n            span.item-container\n              a#effeckt-off-screen-nav-close.icomatic.icomatic-lg cancel\n\n          ul.topcoat-list.offscreen-nav-list\n            if controllers.authentication.authenticated\n              li.row.topcoat-list__item.center\n                .column-auto-hand.topcoat-list__item__line-height.item-container\n                  a.box{action 'logout'}\n                    span.icomatic.icomatic-lg unlock\n            else\n              li.row.topcoat-list__item.center\n                .column-auto-hand.topcoat-list__item__line-height.item-container\n                    a.box{action 'login' 'twitter'}\n                      span.icomatic.icomatic-lg twitter\n              li.row.topcoat-list__item.center\n                .column-auto-hand.topcoat-list__item__line-height.item-container\n                    a.box{action 'login' 'github'}\n                      span.icomatic.icomatic-lg github\n              li.row.topcoat-list__item.center\n                .column-auto-hand.topcoat-list__item__line-height.item-container\n                    a.box{action 'login' 'facebook'}\n                      span.icomatic.icomatic-lg facebook\n\n      .off-screen-nav-cover\n\n      \n      #page-wrap.page-wrap.page\n        outlet\n",
+			"settings":
+			{
+				"buffer_size": 2374,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "`import UUID  from 'linguis/utils/auth/uuid'`\n\ncallRoute = Ember.Route.extend\n  queryParams:\n    id:\n      refreshModel: true\n\n  init: ->\n    @_super()\n    @set('store', App.__container__.lookup('store:main'))\n\n  model: (params) ->\n    return params.call_id  if params.call_id\n    ic.ajax(App.serverUri + '/token/' + UUID.createShortUrl() + '?recipient_id=' + params.queryParams.recipient_id + '&caller_id=' + params.queryParams.caller_id).then (call_id) ->\n      call_id\n\n  setupController: (controller, model) ->\n    @store.fetch('call', model).then (callRef) ->\n      controller.set('model', callRef)\n\n  actions:\n    willTransition: (transition) ->\n      console.log 'in transition'\n    \n`export default callRoute`",
+			"settings":
+			{
+				"buffer_size": 717,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "applicationController = Ember.ObjectController.extend\n  needs: [\n    'index'\n    'authentication'\n    'connection'\n    'session'\n  ]\n\n  connectionRef:    null\n  sessionRef:       null\n  \n  init: ->\n    @_super()\n    console.log 'controller:application:init'\n\n  actions:\n    login: (provider) ->\n      @get('controllers.authentication').authClient.login provider\n\n    logout: ->\n      @get('controllers.authentication').authClient.logout()\n      @get('controllers.authentication').invalidate()\n\n    call: (recipient) ->\n      @transitionToRoute 'call', '',\n        queryParams:\n          caller_id:    @get('memberUuid')\n          recipient_id: recipient.get('id')\n\n`export default applicationController`",
+			"settings":
+			{
+				"buffer_size": 703,
 				"line_ending": "Unix"
 			}
 		}
@@ -658,12 +697,16 @@
 	"expanded_folders":
 	[
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/styles",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/templates",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests"
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/server",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/server/routes"
 	],
 	"file_history":
 	[
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/package.json",
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/integration/firebase-test.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/tests/test-helper.js",
 		"/Users/superstitio/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/.jshintrc",
@@ -672,7 +715,6 @@
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/bower.json",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/utils/auth/normalize-account.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/presence.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/package.json",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/authentication.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/sessions.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/Gold/app/controllers/session.coffee",
@@ -790,8 +832,7 @@
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/authentication.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/member.coffee",
 		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/templates/application.emblem",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/connection.coffee",
-		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/call.coffee"
+		"/Users/superstitio/Documents/workspace/sandbox/ember.js/lingu.is/app/controllers/connection.coffee"
 	],
 	"find":
 	{
@@ -1178,58 +1219,52 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 7,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "app/templates/index.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3,
+						"buffer_size": 283,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3,
-								3
+								46,
+								46
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Handlebars/Handlebars.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 1,
-					"file": "tests/integration/firebase-test.coffee",
+					"file": "app/controllers/index.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1638,
+						"buffer_size": 1754,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								479,
-								479
+								220,
+								220
 							]
 						],
 						"settings":
@@ -1242,23 +1277,267 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "config/environment.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1053,
+						"buffer_size": 2047,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								223,
-								223
+								240,
+								240
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/templates/application.hbs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 43,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Handlebars/Handlebars.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/styles/flexbox-grid.styl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1628,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1628,
+								1628
+							]
+						],
+						"settings":
+						{
+							"auto_name": "// import nib for cross browser features",
+							"syntax": "Packages/Stylus/editors/Stylus.tmbundle/Syntaxes/Stylus.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/styles/topcoat.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3702,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3702,
+								3702
+							]
+						],
+						"settings":
+						{
+							"auto_name": "/**",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "bower.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 521,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								521,
+								521
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "server/routes/token.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2171,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1548,
+								1548
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 376.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2374,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								393,
+								393
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/sublime-emblem-syntax-master/Syntaxes/Emblem.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 717,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								651,
+								651
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 703,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								703,
+								703
 							]
 						],
 						"settings":
@@ -1272,94 +1551,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11023,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								493,
-								493
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1718,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								500,
-								500
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1345,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								437,
-								437
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -1428,6 +1619,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"inde",
+				"app/templates/index.hbs"
+			],
 			[
 				"packe",
 				"Gold/package.json"
@@ -1623,10 +1818,6 @@
 			[
 				"readme",
 				"lingu.is/README.md"
-			],
-			[
-				"inde",
-				"lingu.is/app/index.html"
 			],
 			[
 				"expere",
@@ -1965,7 +2156,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

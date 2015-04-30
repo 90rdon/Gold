@@ -7,6 +7,16 @@ module.exports = function(environment) {
     firebase: 'https://linguis.firebaseio.com/',
     baseURL: '/',
     locationType: 'hash',
+    natives: [
+      'English',
+      'Spanish'
+    ],
+    languages: [
+      'Russian',
+      'Chinese',
+      'French',
+      'Portuaguese'
+    ],
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
