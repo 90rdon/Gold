@@ -42,7 +42,7 @@
     "emberfire": "1.4.4",
     "express": "^4.8.5",
     "firebase": "~2.2.0",
-    "glob": "^4.0.5",
+    "glob": "^5.0.5",
     "http-proxy": "^1.8.1",
     "morgan": "^1.5.1",
     "opentok": "~2.2.5"

@@ -30,14 +30,14 @@ module.exports = function(environment) {
       linguisEndpoint: ''
     },
 
-    // cordova: {
-    //   rebuildOnChange: true,
-    //   emulate: true,
-    //   liveReload: {
-    //     enabled: true,
-    //     platform: 'ios'
-    //   }
-    // },
+    cordova: {
+      rebuildOnChange: true,
+      emulate: true,
+      liveReload: {
+        enabled: true,
+        platform: 'ios'
+      }
+    },
 
     contentSecurityPolicy: {
       'default-src': "'self'",
